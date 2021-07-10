@@ -1,0 +1,159 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+ 
+    Created on : Jul 6, 2021, 12:07:18 AM
+    Author     : NAM
+
+
+
+.container{
+    
+    padding: 10px;
+    margin: 40px;
+    max-width: 1130px;
+    display: inline-block;
+    border: 1px solid red;
+
+}
+ .wrapper{
+     display:list-item;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.wrapper .row{
+    padding: 10px 20px 22px 20px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.row .buttons button{
+    
+    width: 100%;
+    border-radius: 3px;
+    border: 2px solid #78c9ff;
+    background: #fff;
+    color: #78c9ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.buttons button:hover{
+    background: #78c9ff;
+    color: #fff;
+}
+*/
+html {
+    box-sizing: border-box;
+    font-size: 50%;
+}
+
+.grid-item {
+
+    display: inline-block;
+    margin: 30px;
+    padding: 2px;
+    max-width: 1130px;
+    max-height: 480px;
+
+    background-color: #fff;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.grid-item:hover {
+    transform: translateY(-0.5%);
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 3rem;
+}
+
+.card-header {
+    width: 300px;
+    word-wrap: break-word;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #0d0d0d;
+    margin-bottom: 1.5rem;
+}
+
+.card-text {
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7;
+    color: #3d3d3d;
+    margin-bottom: 2.5rem;
+}
+
+.card-btn {
+    display: block;
+    width: 90%;
+    margin: 2px;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: #3363ff;
+    background-color: #d8e0fd;
+    border: none;
+    border-radius: 0.4rem;
+    transition: 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+}
+
+.card-btn span {
+    margin-left: 1rem;
+    transition: 0.2s;
+}
+
+.card-btn:hover,
+.card-btn:active {
+    background-color: #c2cffc;
+}
+
+.card-btn:hover span,
+.card-btn:active span {
+    margin-left: 1.5rem;
+}
+
+
+@media only screen and (max-width: 60em) {
+    body {
+        padding: 3rem;
+    }
+
+    .grid {
+        grid-gap: 3rem;
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,204 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 4, 2021, 8:46:22 PM
+    Author     : NAM
+*/
+
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;
+     max-width: 1510px;
+     max-height: 550px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1550px;
+  position: relative;
+  margin: auto;
+  max-height: 550px;
+}
+
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+img{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+}   
+
+.group button{
+    position: absolute;
+    border-radius: 30px;
+    background-color: #057A45;
+    background-image: none;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    top:7px;
+}
+
+
+input {
+  outline: none;
+  width: 200px;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none; 
+}
+
+
+input[type=search] {
+  background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 400px;
+  
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+input[type=search]:focus {
+  width: 500px;
+  background-color: #fff;
+  border-color: #66CC75;
+  
+  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+
+/*dangnhap*/
+.container {
+  padding: 16px;
+  
+}
+form[id=regForm] {
+  border: 3px solid #f1f1f1;
+  padding: 20px 20px;
+  margin-left: 300px;
+  display: inline-block;
+}
+form[id=addBook] {
+  border: 3px solid #f1f1f1;
+  padding: 20px 20px;
+  margin-left: 300px;
+  display: inline-block;
+}
+form[id=addBook] div{
+    margin: 5px;
+}
+h1{
+    margin-left: 100px;
+}
+/* Full-width inputs */
+input[type=text][name=email], input[type=password] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* <div class="shopping-cart">
+            <div class="px-4 px-lg-0">
+
+                <div class="pb-5">
+                    <div class="container">
+                        <div class="row py-5 p-4 bg-white rounded shadow-sm">
+                            <div class="col-lg-6">
+                                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>
+                                <div class="p-4">
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${money}đ</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10000đ</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>
+                                            <h5 class="font-weight-bold">${money+10000}đ</h5>
+                                        </li>
+                                    </ul><a href="./buy.html?totalmoney=${money}&&email=${email}" class="btn btn-dark rounded-pill py-2 btn-block">Mua hàng</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>*/

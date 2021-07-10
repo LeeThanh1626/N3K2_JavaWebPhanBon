@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 4, 2021, 9:02:36 PM
+    Author     : NAM
+*/
+
+.container{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     position: relative;
+     left: -50%;
+     bottom: -50%;
+     transform: translate(50% ,50%);
+     height: 30px;
+}
+.img{
+    width: 100px;
+    height: 100px;
+}
+.copy{
+    color: black;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+footer{
+    padding: 30px;
+    background: gray;
+    color: #b0b0b0;
+    
+}
