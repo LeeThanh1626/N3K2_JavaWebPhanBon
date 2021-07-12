@@ -36,6 +36,10 @@ public class CartDAO {
         String sql = "select * from cart where phone=?";
         return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Cart.class));
     }
+    public List<Cart> AllCart() {
+        String sql = "select * from cart where ";
+        return template.query(sql, new Object[]{}, new BeanPropertyRowMapper<>(Cart.class));
+    }
 
     public void ThemCart(Cart cart) {
         int Idexist = IsExit(cart.getPhone(), cart.getName(), cart.getSpecifications());
@@ -156,6 +160,14 @@ public class CartDAO {
                 o.getNameuser(), o.getPhone(), o.getNameproduct(), o.getPriceproduct(), o.getAmount(), o.getTotal(), o.getDay());
         template.update(sql);
 
+    }
+     public List<Order> AllOrder(String phone) {
+        String sql = "select * from orders where phone = ?";
+        return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
+    }
+    public List<Order> AllOrder() {
+        String sql = "select * from orders";
+        return template.query(sql, new Object[]{}, new BeanPropertyRowMapper<>(Order.class));
     }
 
 }

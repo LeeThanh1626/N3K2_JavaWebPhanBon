@@ -7,13 +7,19 @@ package controller;
 
 //import cartdao.CartDAO;
 import dao.CartDAO;
+import dao.CartExcelExporter;
 import dao.ProductDAO;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
 import model.Cart;
+import model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,7 +119,54 @@ public class CartController {
     public String Buy(@RequestParam("totalmoney") float totalmoney, @RequestParam("phone") String phone) {
         
         cartdao.Buy(totalmoney, phone);
-        ModelAndView list = new ModelAndView("product/listProduct");
-        return "redirect:/list.html";
+//        ModelAndView list = new ModelAndView("product/listProduct");
+        return "redirect:/report.html";
     }
+       @RequestMapping(value = "/report")
+    public ModelAndView userListReport(HttpServletRequest req, HttpServletResponse res) {
+
+        String phone = "";
+        String name = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("phoneC")) {
+                phone = o.getValue();
+            }
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
+        }
+        List<Order> lst = cartdao.AllOrder(phone);
+
+        return new ModelAndView("product/report","cart", lst);
+    }
+    
+    @RequestMapping(value = "/export",method=RequestMethod.GET)
+    public void exportToExcel(HttpServletRequest req,HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+          DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+//        String phone = "";
+//        String name = "";
+//        Cookie arr[] = req.getCookies();
+//        for (Cookie o : arr) {
+//            if (o.getName().equals("phoneC")) {
+//                phone = o.getValue();
+//            }
+//            if (o.getName().equals("nameC")) {
+//                name = o.getValue();
+//            }
+//        }
+//        
+//        List<Order> lst = cartdao.AllOrder(phone);
+        List<Order> lst = cartdao.AllOrder();
+        CartExcelExporter excelExporter = new CartExcelExporter(lst);
+
+        excelExporter.export(response);
+
+    }
+
 }
