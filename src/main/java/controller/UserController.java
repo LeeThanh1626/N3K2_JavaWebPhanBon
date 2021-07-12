@@ -50,7 +50,7 @@ public class UserController {
         User u = userdao.Search_phone(phone);
         ModelAndView us = new ModelAndView("user/TrangCaNhan", "u", u);
         //xác định user hay admin để hiển thị cho view
-        us.addObject("name",name);
+        us.addObject("name", name);
         return us;
     }
 
@@ -69,9 +69,18 @@ public class UserController {
     //Quản lý User 
     //list user 
     @RequestMapping(value = "/listUser", method = RequestMethod.GET)
-    public ModelAndView ListUser() {
+    public ModelAndView ListUser(HttpServletRequest req) {
         List<User> lst = userdao.AllUser();
-        return new ModelAndView("user/listUser", "list", lst);
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView listU = new ModelAndView("user/listUser", "list", lst);
+        listU.addObject("name", username);
+        return listU;
     }
 
     //xóa user
@@ -83,16 +92,36 @@ public class UserController {
 
     //Sửa user
     @RequestMapping(value = "/editUser", produces = "text/plain;charset=UTF-8")
-    public ModelAndView CapNhat_User(@RequestParam("id") int id) {
+    public ModelAndView CapNhat_User(HttpServletRequest req) {
+        int id = Integer.parseInt(req.getParameter("id"));
         User u = userdao.DetailUser(id);
-        return new ModelAndView("user/edit", "u", u);
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView edit = new ModelAndView("user/edit", "u", u);
+        edit.addObject("name", username);
+        return edit;
     }
 
     //Nạp tiền user
     @RequestMapping(value = "/addMoneyUser", produces = "text/plain;charset=UTF-8")
-    public ModelAndView addMoneyUser(@RequestParam("id") int id) {
+    public ModelAndView addMoneyUser(HttpServletRequest req) {
+        int id = Integer.parseInt(req.getParameter("id"));
         User u = userdao.DetailUser(id);
-        return new ModelAndView("user/NapTien", "u", u);
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView addmoney = new ModelAndView("user/NapTien", "u", u);
+        addmoney.addObject("name", username);
+        return addmoney;
 
     }
 
@@ -105,8 +134,17 @@ public class UserController {
 
     //thêm user 
     @RequestMapping(value = "/addUser")
-    public ModelAndView Them_ui() {
-        return new ModelAndView("user/add");
+    public ModelAndView Them_ui(HttpServletRequest req) {
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView addU = new ModelAndView("user/add");
+        addU.addObject("name", username);
+        return addU;
     }
 
     // cập nhật user xuống database khi sửa hoặc thêm mới
@@ -122,9 +160,19 @@ public class UserController {
 
     //tìm user theo sđt
     @RequestMapping(value = "/SearchUser", method = RequestMethod.GET)
-    public ModelAndView Search_User(@RequestParam("phone") String phone) {
+    public ModelAndView Search_User(HttpServletRequest req) {
+        String phone = req.getParameter("phone");
         List<User> u = userdao.Search_User(phone);
-        return new ModelAndView("user/listUser", "list", u);
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView search = new ModelAndView("user/listUser", "list", u);
+        search.addObject("name", username);
+        return search;
     }
 
 }

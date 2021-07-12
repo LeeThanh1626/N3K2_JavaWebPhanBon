@@ -24,18 +24,16 @@
                         <div class="card-content">
                             <h1 class="card-header"> ${b.name}</h1>
                             <p class="card-text">${b.price}<span>VND</span></p>
-                            <c:set value="${name}" var="name1" ></c:set>
-                            <c:if test="${name1 == admin}">
+                            <c:set value="${name}" var="name" ></c:set>
+                            <c:if test="${name == admin}">
                                 <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>
 
                                 <a href="./edit.html?id=${b.id}" class="card-btn">Sửa<span>&rarr;</span></a>
 
                                 <a href="./delete.html?id=${b.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
 
-                                <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a>
-
                             </c:if>
-                            <c:if test="${name1 != admin}">
+                            <c:if test="${name != admin}">
                                 <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>
 
                                 <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a> 

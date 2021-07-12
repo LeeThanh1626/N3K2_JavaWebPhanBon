@@ -56,7 +56,7 @@ public class ProductController {
 
     @RequestMapping(value = "/detailproduct", produces = "text/plain;charset=UTF-8")
     public ModelAndView Detail(HttpServletRequest request) {
-        int id =Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         Product b = dao.DetailProduct(id);
         String name = "";
         Cookie arr[] = request.getCookies();
@@ -71,15 +71,35 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/edit", produces = "text/plain;charset=UTF-8")
-    public ModelAndView CapNhat_Product(@RequestParam("id") int id) {
+    public ModelAndView CapNhat_Product(HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("id"));
         Product b = dao.DetailProduct(id);
-        return new ModelAndView("product/edit", "b", b);
+        String name = "";
+        Cookie arr[] = request.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
+        }
+        ModelAndView edit = new ModelAndView("product/edit", "b", b);
+        edit.addObject("name", name);
+        return edit;
     }
 
     @RequestMapping(value = "/listSearch", method = RequestMethod.GET)
-    public ModelAndView Search_product(@RequestParam("name") String name) {
+    public ModelAndView Search_product(HttpServletRequest request) {
+        String name = request.getParameter("name");
         List<Product> lst = dao.Search_Product(name);
-        return new ModelAndView("product/listProduct", "list", lst);
+        String username = "";
+        Cookie arr[] = request.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView search = new ModelAndView("product/listProduct", "list", lst);
+        search.addObject("name", username);
+        return search;
     }
 
     @RequestMapping(value = "/delete")
@@ -89,8 +109,17 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add")
-    public ModelAndView Them_ui() {
-        return new ModelAndView("product/add");
+    public ModelAndView Them_ui(HttpServletRequest request) {
+        String username = "";
+        Cookie arr[] = request.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView add = new ModelAndView("product/add");
+        add.addObject("name", username);
+        return add;    
     }
 
     // cập nhật product xuống database khi sửa hoặc thêm mới
