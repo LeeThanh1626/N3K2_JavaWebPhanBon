@@ -13,7 +13,8 @@
         <title>JSP Page</title>
         <link rel="stylesheet" href="./Allproduct/css/listSach.css">
     </head>
-    <body class="bodyy">
+    <body class="body">
+
         <header><%@include file="header.jsp" %></header>
         <section>
             <c:forEach var="b" items="${list}"> 
@@ -23,18 +24,25 @@
                         <div class="card-content">
                             <h1 class="card-header"> ${b.name}</h1>
                             <p class="card-text">${b.price}<span>VND</span></p>
-                            <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>
+                            <c:set value="${name}" var="name1" ></c:set>
+                            <c:if test="${name1 == admin}">
+                                <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>
 
-                            <a href="./edit.html?id=${b.id}" class="card-btn">Sửa<span>&rarr;</span></a>
+                                <a href="./edit.html?id=${b.id}" class="card-btn">Sửa<span>&rarr;</span></a>
 
-                            <a href="./delete.html?id=${b.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
+                                <a href="./delete.html?id=${b.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
 
-                            <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a>
+                                <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a>
 
+                            </c:if>
+                            <c:if test="${name1 != admin}">
+                                <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>
+
+                                <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a> 
+                            </c:if>
                         </div>
                     </div>
                 </div>
-
             </c:forEach>
         </section>
         <footer><%@include file="../footer.jsp" %></footer>

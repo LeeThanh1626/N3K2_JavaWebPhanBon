@@ -36,14 +36,21 @@ public class UserController {
     @RequestMapping(value = "/TrangCaNhan", method = RequestMethod.GET)
     public ModelAndView TrangCaNhan(HttpServletRequest request, HttpServletResponse response) {
         String phone = "";
+        String name = "";
         Cookie arr[] = request.getCookies();
         for (Cookie o : arr) {
+            //xác đinh 1 user, lấy thông tin cá nhân
             if (o.getName().equals("phoneC")) {
                 phone = o.getValue();
             }
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
         }
-        List<User> u = userdao.Search_User(phone);
+        User u = userdao.Search_phone(phone);
         ModelAndView us = new ModelAndView("user/TrangCaNhan", "u", u);
+        //xác định user hay admin để hiển thị cho view
+        us.addObject("name",name);
         return us;
     }
 
@@ -85,8 +92,8 @@ public class UserController {
     @RequestMapping(value = "/addMoneyUser", produces = "text/plain;charset=UTF-8")
     public ModelAndView addMoneyUser(@RequestParam("id") int id) {
         User u = userdao.DetailUser(id);
-        return new ModelAndView("user/NapTien","u",u);
-       
+        return new ModelAndView("user/NapTien", "u", u);
+
     }
 
     //xác nhận nộp tiền

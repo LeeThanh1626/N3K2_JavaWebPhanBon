@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 10, 2021 at 10:08 AM
+-- Generation Time: Jul 12, 2021 at 03:43 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,14 +37,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `price` float DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `phone`, `name`, `specifications`, `pic`, `price`, `amount`) VALUES
-(29, '012345', 'Day con lam giau', 102, 'dayconlmgiau.jpg', 100000, 1);
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -55,14 +48,27 @@ INSERT INTO `cart` (`id`, `phone`, `name`, `specifications`, `pic`, `price`, `am
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
-  `sdt` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
-  `address` text COLLATE utf8_vietnamese_ci NOT NULL,
-  `price` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
+  `nameuser` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
+  `nameproduct` varchar(225) COLLATE utf8_vietnamese_ci NOT NULL,
+  `priceproduct` float NOT NULL,
+  `amount` int(11) NOT NULL,
+  `total` float NOT NULL,
+  `day` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `nameuser`, `phone`, `nameproduct`, `priceproduct`, `amount`, `total`, `day`) VALUES
+(19, 'test 21', '012345', 'Harry Potter', 123000, 100, 253000, '2021-07-11'),
+(20, 'test 21', '012345', 'Nha Lanh Dao Khong Chuc Danh', 130000, 100, 253000, '2021-07-11'),
+(21, 'test 21', '012345', 'Harry Potter', 123000, 100, 253000, '2021-07-11'),
+(22, 'test 21', '012345', 'Nha Lanh Dao Khong Chuc Danh', 130000, 100, 253000, '2021-07-11'),
+(23, 'test 21', '012345', 'Harry Potter', 123000, 100, 253000, '2021-07-11'),
+(24, 'test 21', '012345', 'Nha Lanh Dao Khong Chuc Danh', 130000, 100, 253000, '2021-07-11');
 
 -- --------------------------------------------------------
 
@@ -85,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `specifications`, `price`, `pic`) VALUES
-(1, 'Day con lam giau', 102, 100000, 'dayconlmgiau.jpg'),
+(1, 'Day con lam giau', 100, 100000, 'dayconlmgiau.jpg'),
 (3, 'Harry Potter', 100, 123000, 'hary.jpg'),
 (4, 'Nha Lanh Dao Khong Chuc Danh', 100, 130000, 'lanhdaokhongdanh.jpg'),
 (76, 'test 1', 101, 1000, 'mot-manh-trang.jpg'),
@@ -105,16 +111,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(11) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `money` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `phone`, `money`) VALUES
-(2, 'abc@gmail.com', '111', '0333252212', 557005),
-(10, 'test 1', '121', '033325221', 0),
-(8, 'test 21', '111', '012345', 900140);
+(1, 'admin', '111', '01234557577', 0),
+(2, 'Nguyen Van A', '111', '0969435542', 0),
+(3, 'Le Duc Thanh', '121', '0333252212', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

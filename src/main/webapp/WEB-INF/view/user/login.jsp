@@ -21,11 +21,11 @@
         <section>
             <h1>Đăng Nhập</h1>
             <form id="regForm" modelattribute="User" action="./loginProcess.html" method="post">
+                
                 <div>
                     <label for="uname"><b>Phone Number: </b></label>
                     <input type="text" placeholder="Nhập tên số điện thoại" name="phone" required>
                 </div>
-
                 <div >
                     <label for="psw"><b>Password: </b></label>
                     <input type="password" placeholder="Nhập mật khẩu" name="password" required>

@@ -5,7 +5,8 @@
  */
 package controller;
 
-//import dao.CartDAO;
+//import cartdao.CartDAO;
+import dao.CartDAO;
 import dao.ProductDAO;
 import java.util.List;
 import javax.servlet.http.Cookie;
@@ -28,24 +29,34 @@ import org.springframework.web.servlet.ModelAndView;
 public class CartController {
 
     @Autowired
+    CartDAO cartdao;
+    @Autowired
     ProductDAO dao;
-//    CartDAO cartdao;
 
     @RequestMapping(value = "/listcart")
-    public ModelAndView LayCart(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView ShowCart(HttpServletRequest request, HttpServletResponse response) {
         String phone = "";
+        String name = "";
         Cookie arr[] = request.getCookies();
         for (Cookie o : arr) {
             if (o.getName().equals("phoneC")) {
                 phone = o.getValue();
             }
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
         }
-        List<Cart> lst = dao.AllCart(phone);
+        List<Cart> lst = cartdao.AllCart(phone);
         ModelAndView cart = new ModelAndView("product/cart", "list", lst);
+        cart.addObject("name", name);
+        
         float total = 0;
         for (Cart i : lst) {
-            float price = i.getPrice();
+            //lấy giá theo 1kg
+            float price = i.getPrice() / i.getSpecifications();
+            //lấy số kg đc mua 
             int amount = i.getAmount();
+            //thành tiền
             total += price * amount;
             cart.addObject("money", total);
             cart.addObject("phone", i.getPhone());
@@ -55,49 +66,53 @@ public class CartController {
 
     //thêm và xử lý giỏ hàng
     @RequestMapping(value = "/addcart", method = RequestMethod.GET)
-    public String AddCart(HttpServletRequest request, HttpServletResponse response, @RequestParam("id") int id) {
+    public String AddCart(HttpServletRequest request, HttpServletResponse response) {
+        String ids = request.getParameter("id");
+        int id = Integer.parseInt(ids);
         Product b = dao.DetailProduct(id);
         Cart cart = new Cart();
         cart.setName(b.getName());
         cart.setPic(b.getPic());
         cart.setPrice(b.getPrice());
         cart.setSpecifications(b.getSpecifications());
-        cart.setAmount(1);
+        //mặc định mua đúng bằng số kg của quy cách
+        cart.setAmount(b.getSpecifications());
         Cookie arr[] = request.getCookies();
         for (Cookie o : arr) {
             if (o.getName().equals("phoneC")) {
                 cart.setPhone(o.getValue());
             }
         }
-        dao.ThemCart(cart);
+        cartdao.ThemCart(cart);
         return "redirect:/list.html";
     }
 
     //Xử lý button cart
     @RequestMapping(value = "/subproductcart")
     public String Sub(@RequestParam("id") int id) {
-        int cart = dao.Sub(id);
+        int cart = cartdao.Sub(id);
         ModelAndView subcart = new ModelAndView("product/cart");
         return "redirect:/listcart.html";
     }
 
     @RequestMapping(value = "/addproductcart")
     public String Add(@RequestParam("id") int id) {
-        int cart = dao.Add(id);
+        int cart = cartdao.Add(id);
         ModelAndView add = new ModelAndView("product/cart");
         return "redirect:/listcart.html";
     }
 
     @RequestMapping(value = "/deleteproductcart")
     public String Detele(@RequestParam("id") int id) {
-        int cart = dao.Delete(id);
+        int cart = cartdao.Delete(id);
         ModelAndView de = new ModelAndView("product/cart");
         return "redirect:/listcart.html";
     }
 
     @RequestMapping(value = "/buy")
     public String Buy(@RequestParam("totalmoney") float totalmoney, @RequestParam("phone") String phone) {
-        dao.Buy(totalmoney, phone);
+        
+        cartdao.Buy(totalmoney, phone);
         ModelAndView list = new ModelAndView("product/listProduct");
         return "redirect:/list.html";
     }

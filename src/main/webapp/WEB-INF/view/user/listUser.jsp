@@ -39,19 +39,16 @@
                     <td>
                         ${u.id}  
                     </td>
-
                 </tr>
-            </tr>
-
-        </table>
+            </table>
 
 
-        <a href="./editUser.html?id=${u.id}" class="card-btn">Sửa<span>&rarr;</span></a>
-        <a href="./addMoneyUser.html?id=${u.id}" class="card-btn">Nạp Tiền<span>&rarr;</span></a>
-        <a href="./deleteUser.html?id=${u.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
-    </c:forEach>
+            <a href="./editUser.html?id=${u.id}" class="card-btn">Sửa<span>&rarr;</span></a>
+            <a href="./addMoneyUser.html?id=${u.id}" class="card-btn">Nạp Tiền<span>&rarr;</span></a>
+            <a href="./deleteUser.html?id=${u.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
+        </c:forEach>
 
-    <footer><%@include file="../footer.jsp" %></footer>
-</body>
+        <footer><%@include file="../footer.jsp" %></footer>
+    </body>
 
 </html>

@@ -3,9 +3,10 @@
     Created on : Jun 30, 2021, 5:14:07 PM
     Author     : Dell 7450
 --%>
-
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,20 +39,28 @@
             </div>
         </header>
         <div class="topnav">
+            <c:set value="${name}" var="name1" ></c:set>
+            <c:if test="${name1 != admin}">
+                <a class="active"  href="list.html">Tất cả sản phẩm</a>
 
-            <a class="active"  href="list.html">Tất cả sản phẩm</a>
+                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
 
-            <a  href="add.html">Thêm Sản Phẩm</a>
-             
-            <a href="./listUser.html">Quản Lý Người Dùng</a>
-            
-            <a href="./addUser.html">Thêm Khách Hàng</a>
-            <div class="right">     
-                <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
-            </div>
+                <div class="right">     
+                    <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
+                </div>
+            </c:if>
+            <c:if test="${name1 == admin}">
+                <a class="active"  href="list.html">Tất cả sản phẩm</a>
+
+                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
+
+                <a  href="add.html">Thêm Sản Phẩm</a>
+
+                <a href="./listUser.html">Quản Lý Người Dùng</a>
+
+                <a href="./addUser.html">Thêm Khách Hàng</a>
+            </c:if>
+
         </div>
-
-
-
     </body>
 </html>

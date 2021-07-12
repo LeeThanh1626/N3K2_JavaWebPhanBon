@@ -40,7 +40,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
-    public String loginProcess(HttpServletRequest request, HttpServletResponse response,
+    public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
             @ModelAttribute("login") Login login) throws IOException {
         ModelAndView u = null;
         User user = userdao.validateUser(login);
@@ -48,17 +48,23 @@ public class LoginController {
             u = new ModelAndView("./product/header");
             u.addObject("phone", user.getPhone());
             u.addObject("password", user.getPassword());
+            u.addObject("name", user.getName());
             //lưu cookie
             Cookie uc = new Cookie("phoneC", user.getPhone());
             Cookie pc = new Cookie("passC", user.getPassword());
+            //lưu để ác định admin cho phân quyền
+            Cookie nc = new Cookie("nameC", user.getName());
             uc.setMaxAge(60 * 60 * 24 * 360);
             pc.setMaxAge(60 * 60 * 24 * 360);
             //lưu cookie lên chrome
             response.addCookie(uc);
             response.addCookie(pc);
-            return "redirect:/list.html";
-        } 
-            JOptionPane.showMessageDialog(null, "phone or password error");
-            return "redirect:/login.html";
+            response.addCookie(nc);
+            return u;
+//            return "redirect:/list.html";
+        }
+        JOptionPane.showMessageDialog(null, "phone or password error");
+//            return "redirect:/login.html";
+        return u;
     }
 }

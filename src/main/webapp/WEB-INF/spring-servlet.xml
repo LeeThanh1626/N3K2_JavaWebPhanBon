@@ -32,6 +32,9 @@
      
     <bean id="userdao" class="dao.UserDAO">    
         <property name="jdbctemplate" ref="jt"></property>    
-    </bean>   
-    
+    </bean> 
+      
+    <bean id="cartdao" class="dao.CartDAO">    
+        <property name="template" ref="jt"></property>    
+    </bean>  
 </beans>  

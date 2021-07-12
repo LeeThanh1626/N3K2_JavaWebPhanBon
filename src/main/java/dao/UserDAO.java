@@ -91,7 +91,7 @@ public class UserDAO {
     }
 
     /// xác định user nạp tài khoản
-    private User Search_phone(String phone) {
+    public User Search_phone(String phone) {
         String sql = "select * from users where phone = ?";
         return jdbctemplate.queryForObject(sql, new Object[]{ phone }, new BeanPropertyRowMapper<>(User.class));
     }

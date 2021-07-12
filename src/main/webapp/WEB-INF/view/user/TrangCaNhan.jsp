@@ -14,7 +14,6 @@
     </head>
     <%@include file="../product/header.jsp" %>
     <body>
-
         <table>
             <thead>
                 <tr>
@@ -22,20 +21,17 @@
                     <th>Password</th>
                     <th>Số dư tài khoản</th>
                     <th>Status</th>
-
                 </tr>
             </thead>
 
-            <tr> <td><a href="#" >${u.name}</a></td>
+            <tr> <td>${u.name}</td>
                 <td>${u.password}</td>
                 <td>${u.money}</td>
                 <td>
                     <p class="status status-paid">Good</p>
                 </td>
-
             </tr>
         </tr>
-
     </table>
     <footer style="margin-top: 280px">
         <%@include file="../footer.jsp" %>

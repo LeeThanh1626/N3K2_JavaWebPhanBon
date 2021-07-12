@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Arrays;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
@@ -39,16 +40,34 @@ public class ProductController {
     ProductDAO dao;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView LayDanhSach() {
+    public ModelAndView LayDanhSach(HttpServletRequest request) {
         List<Product> lst = dao.AllProduct();
+        String name = "";
+        Cookie arr[] = request.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
+        }
         ModelAndView us = new ModelAndView("product/listProduct", "list", lst);
+        us.addObject("name", name);
         return us;
     }
 
     @RequestMapping(value = "/detailproduct", produces = "text/plain;charset=UTF-8")
-    public ModelAndView Detail(@RequestParam("id") int id) {
+    public ModelAndView Detail(HttpServletRequest request) {
+        int id =Integer.parseInt(request.getParameter("id"));
         Product b = dao.DetailProduct(id);
-        return new ModelAndView("product/detail", "b", b);
+        String name = "";
+        Cookie arr[] = request.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                name = o.getValue();
+            }
+        }
+        ModelAndView detail = new ModelAndView("product/detail", "b", b);
+        detail.addObject("name", name);
+        return detail;
     }
 
     @RequestMapping(value = "/edit", produces = "text/plain;charset=UTF-8")
