@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jul 12, 2021 at 03:43 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Máy chủ: 127.0.0.1:3306
+-- Thời gian đã tạo: Th7 12, 2021 lúc 02:10 PM
+-- Phiên bản máy phục vụ: 5.7.31
+-- Phiên bản PHP: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fertilizerweb`
+-- Cơ sở dữ liệu: `fertilizerweb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
 INSERT INTO `orders` (`id`, `nameuser`, `phone`, `nameproduct`, `priceproduct`, `amount`, `total`, `day`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `orders` (`id`, `nameuser`, `phone`, `nameproduct`, `priceproduct`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 DROP TABLE IF EXISTS `product`;
@@ -87,20 +87,25 @@ CREATE TABLE IF NOT EXISTS `product` (
 ) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `specifications`, `price`, `pic`) VALUES
-(1, 'Day con lam giau', 100, 100000, 'dayconlmgiau.jpg'),
-(3, 'Harry Potter', 100, 123000, 'hary.jpg'),
-(4, 'Nha Lanh Dao Khong Chuc Danh', 100, 130000, 'lanhdaokhongdanh.jpg'),
-(76, 'test 1', 101, 1000, 'mot-manh-trang.jpg'),
-(77, 'test 1', 101, 123000, 'battre.jpg');
+(1, 'Phân NPK Yuroka 16.16.16 (BM)', 50, 750000, '1.jpg'),
+(2, 'NPK JVF tím 16-6-18+12S+TE', 50, 600000, '2.jpg'),
+(3, 'URÊ - Đạm Phú Mỹ', 50, 750000, '3.jpg'),
+(4, 'Phân Bón NPK Spectrum Đức BM 20-20-15+TE', 50, 700000, '4.jpg'),
+(5, 'NPK Đầu Trâu xanh 16-8-16-6S+TE', 50, 550000, '5.jpg'),
+(6, 'NPK Đầu Trâu vàng 17-7-14-10S+TE', 50, 520000, '6.jpg'),
+(7, 'Haifa Multi-K GG - KNO3 - Phân Bón Cao Cấp Chuyên Dùng Tưới Nhỏ Giọt', 25, 820000, '7.jpg'),
+(8, 'Haifa Multi-K GG - KNO3 - Phân Bón Cao Cấp Chuyên Dùng Tưới Nhỏ Giọt', 1, 65000, '8.jpg'),
+(9, 'Phân Bón Cao Cấp Yara Mila Winner', 25, 460000, '9.jpg'),
+(10, 'Phân Bón Cao Cấp Yara Mila Winner', 1, 65000, '10.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -114,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `phone`, `money`) VALUES
