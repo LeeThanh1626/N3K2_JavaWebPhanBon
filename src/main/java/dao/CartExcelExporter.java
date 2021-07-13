@@ -27,10 +27,10 @@ public class CartExcelExporter {
 
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
-    private List<Order> listOrder;
+    private List<Order> listOrders;
 
     public CartExcelExporter(List<Order> listOrders) {
-        this.listOrder = listOrders;
+        this.listOrders = listOrders;
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Orders");
     }
@@ -56,8 +56,37 @@ public class CartExcelExporter {
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         font.setFontHeight(10);
+        font.getFamily();
         style.setFont(font);
-
+//            Cell cell = row.createCell(0);
+//            cell.setCellValue("PHIẾU THU");
+//            
+//              cell = row.createCell(1);
+//            cell.setCellValue("Order ID");
+//            
+//            cell = row.createCell(2);
+//            cell.setCellValue("Số Điện Thoại");
+//            
+//            cell = row.createCell(3);
+//            cell.setCellValue("Tên Khách Hàng");
+//            
+//            cell = row.createCell(4);
+//            cell.setCellValue("Tên Sản Phẩm");
+//            
+//            cell = row.createCell(5);
+//            cell.setCellValue("Giá tiền");
+//            
+//            cell = row.createCell(6);
+//            cell.setCellValue("Số Lượng");
+//            
+//            cell = row.createCell(7);
+//            cell.setCellValue("Tổng Tiền");
+//            
+//            cell = row.createCell(8);
+//            cell.setCellValue("Ngày mua");
+//            
+//            cell = row.createCell(9);
+//            cell.setCellValue("Ký tên xác nhận(Ghi rõ họ và tên)");
              createCell(row, 0, "PHIẾU THU", style);      
         createCell(row, 1, "Order ID", style);       
         createCell(row, 2, "Số Điện Thoại",style);  
@@ -72,16 +101,18 @@ public class CartExcelExporter {
     }
 
     private void writeDataRows() {
-        int rowCount = 2;
-        CellStyle style = workbook.createCellStyle();
-        XSSFFont font = workbook.createFont();
-        font.setFontHeight(10);
-        style.setFont(font);
-          
+        int rowCount = 1;
+//        CellStyle style = workbook.createCellStyle();
+//        XSSFFont font = workbook.createFont();
+//        font.setFontHeight(10);
+//        style.setFont(font);
+//          
         
-        for (Order order : listOrder) {
-            Row row = sheet.createRow(rowCount);
+        for (Order order : listOrders) {
+            Row row = sheet.createRow(rowCount++);
 
+            
+            
             Cell cell = row.createCell(1);
             cell.setCellValue(order.getId());
 
@@ -107,7 +138,7 @@ public class CartExcelExporter {
             cell.setCellValue(order.getDay().toString());
             
               cell = row.createCell(9);
-            cell.setCellValue("Nguyễn Duy Nam");
+            cell.setCellValue(" ");
         }
     }
 

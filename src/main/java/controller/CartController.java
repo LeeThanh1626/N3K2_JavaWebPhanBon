@@ -149,23 +149,24 @@ public class CartController {
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
-//        String phone = "";
+        String phone = "";
 //        String name = "";
-//        Cookie arr[] = req.getCookies();
-//        for (Cookie o : arr) {
-//            if (o.getName().equals("phoneC")) {
-//                phone = o.getValue();
-//            }
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("phoneC")) {
+                phone = o.getValue();
+            }
 //            if (o.getName().equals("nameC")) {
 //                name = o.getValue();
 //            }
-//        }
-//        
-//        List<Order> lst = cartdao.AllOrder(phone);
-        List<Order> lst = cartdao.AllOrder();
+        }
+        
+        List<Order> lst = cartdao.AllOrder(phone);
+////        List<Order> lst = cartdao.AllOrder();
         CartExcelExporter excelExporter = new CartExcelExporter(lst);
 
         excelExporter.export(response);
+        cartdao.DeleCart(phone);
 
     }
 

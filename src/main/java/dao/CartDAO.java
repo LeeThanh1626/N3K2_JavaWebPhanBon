@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import model.Cart;
 import model.User;
@@ -36,6 +37,7 @@ public class CartDAO {
         String sql = "select * from cart where phone=?";
         return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Cart.class));
     }
+
     public List<Cart> AllCart() {
         String sql = "select * from cart where ";
         return template.query(sql, new Object[]{}, new BeanPropertyRowMapper<>(Cart.class));
@@ -143,7 +145,7 @@ public class CartDAO {
                         ThemOrder(o);
                     }
                 }
-                DeleCart(phone);
+//                DeleCart(phone);
             }
         }
 
@@ -161,13 +163,37 @@ public class CartDAO {
         template.update(sql);
 
     }
-     public List<Order> AllOrder(String phone) {
-        String sql = "select * from orders where phone = ?";
-        return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
-    }
+////     public List<Order> AllOrder(String phone) {
+////        String sql = "select * from orders where phone = ?";
+////        return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
+////    }
+
     public List<Order> AllOrder() {
         String sql = "select * from orders";
         return template.query(sql, new Object[]{}, new BeanPropertyRowMapper<>(Order.class));
+    }
+        
+
+    public List<Order> AllOrder(String phone){
+        User u = Search_User(phone);
+        List<Cart> clist = searchCart(phone);
+        List<Order> oList = new ArrayList<>();
+        for (Cart cart : clist) {
+            if (cart.getId() != 0) {
+                //lấy ngày hiện tại
+                LocalDate day = LocalDate.now();
+                Order o = new Order();
+                o.setNameuser(u.getName());
+                o.setPhone(u.getPhone());
+                o.setNameproduct(cart.getName());
+                o.setPriceproduct(cart.getPrice());
+                o.setAmount(cart.getAmount());
+                o.setTotal(cart.getTotalmoney());
+                o.setDay(day);
+                oList.add(o);
+            }
+        }
+        return oList;
     }
 
 }
