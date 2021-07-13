@@ -23,7 +23,7 @@
             <form id="regForm" modelattribute="User" action="./registerProcess.html" method="post">
                 <div>
                     <label for="uname"><b>Username: </b></label>
-                    <input type="text" name="name" value="admin" readonly="readonly"></input>
+                    <input type="text" name="name" placeholder="Nhập tên người dùng" ></input>
                 </div>
                 <br/>
                 <div>

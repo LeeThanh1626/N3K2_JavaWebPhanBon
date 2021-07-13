@@ -44,10 +44,13 @@ public class CartDAO {
     }
 
     public void ThemCart(Cart cart) {
+        //kiểm tra sản phẩm của user có tồn tại trong giỏ hàng hay chưa
         int Idexist = IsExit(cart.getPhone(), cart.getName(), cart.getSpecifications());
         if (Idexist != 0) {
+            //lấy thông tin sản phẩm ấy nếu đã tồn tại
             Cart product = searchCart(cart.getPhone(), cart.getName(), cart.getSpecifications());
-            int sl = product.getAmount() + 1;
+            //tăng số lượng nếu thêm sp ấy vào 1 lần nữa, với qui cách của sp 
+            int sl = product.getAmount() + product.getSpecifications();
             UpdateCart(sl, product.getId());
         } else {
             String sql = String.format("insert into cart (phone,name, specifications,pic, price, amount) values('%s','%s','%d','%s','%f','%d')",
@@ -164,8 +167,7 @@ public class CartDAO {
 
     }
 
-        
-    public List<Order> AllOrder(String phone){
+    public List<Order> AllOrder(String phone) {
         User u = Search_User(phone);
         List<Cart> clist = searchCart(phone);
         List<Order> oList = new ArrayList<>();
