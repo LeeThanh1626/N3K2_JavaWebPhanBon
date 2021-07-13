@@ -119,7 +119,10 @@ input:-moz-placeholder {
 input::-webkit-input-placeholder {
   color: #999;
 }
-
+html {
+    box-sizing: border-box;
+    font-size: 70%;
+}
 
 /*dangnhap*/
 .container {

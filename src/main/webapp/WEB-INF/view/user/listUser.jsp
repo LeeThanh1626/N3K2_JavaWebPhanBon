@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="./Allproduct/css/trangcanhan.css">
+        
     </head>
     <body class="bodyy">
         <c:set value="admin" var="admin" ></c:set>
@@ -57,10 +58,10 @@
             </table>
 
             <c:if test="${name != admin}">
-                <a href="./editUser.html?id=${u.id}" class="card-btn">Sửa<span>&rarr;</span></a>
-                <a href="./addMoneyUser.html?id=${u.id}" class="card-btn">Nạp Tiền<span>&rarr;</span></a>
-                <a href="./purchseHistory.html?id=${u.id}" class="card-btn">Lịch Sử Mua Hàng<span>&rarr;</span></a>
-                <a href="./deleteUser.html?id=${u.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
+                <a href="./editUser.html?id=${u.id}" class="card-btn">Sửa</a>
+                <a href="./addMoneyUser.html?id=${u.id}" class="card-btn">Nạp Tiền</a>
+                <a href="./purchseHistory.html?id=${u.id}" class="card-btn">Lịch Sử Mua Hàng</a>
+                <a href="./deleteUser.html?id=${u.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa</a>
             </c:if>
 
         </c:forEach>

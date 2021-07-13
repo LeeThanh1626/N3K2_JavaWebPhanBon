@@ -62,6 +62,10 @@ img{
     color: #fff;
 }
 */
+html {
+    box-sizing: border-box;
+    font-size: 65%;
+}
 .grid-item {
     display: flex;
     margin: 40px;
