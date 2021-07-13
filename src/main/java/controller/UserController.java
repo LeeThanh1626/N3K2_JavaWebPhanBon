@@ -5,19 +5,15 @@
  */
 package controller;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import dao.UserDAO;
 import java.util.List;
-import java.util.Locale;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
-import model.Login;
+import model.Order;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,7 +118,24 @@ public class UserController {
         ModelAndView addmoney = new ModelAndView("user/NapTien", "u", u);
         addmoney.addObject("name", username);
         return addmoney;
+    }
 
+    //xem lịch sử mua hàng
+    @RequestMapping(value = "/purchseHistory", produces = "text/plain;charset=UTF-8")
+    public ModelAndView purchseHistory(HttpServletRequest req) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        User u = userdao.DetailUser(id);
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        List<Order> lst = userdao.AllOrder(u.getPhone());
+        ModelAndView history = new ModelAndView("user/purchseHistory", "list", lst);
+        history.addObject("name", username);
+        return history;
     }
 
     //xác nhận nộp tiền

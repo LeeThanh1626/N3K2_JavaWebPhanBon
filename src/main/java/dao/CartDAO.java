@@ -163,17 +163,8 @@ public class CartDAO {
         template.update(sql);
 
     }
-////     public List<Order> AllOrder(String phone) {
-////        String sql = "select * from orders where phone = ?";
-////        return template.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
-////    }
 
-    public List<Order> AllOrder() {
-        String sql = "select * from orders";
-        return template.query(sql, new Object[]{}, new BeanPropertyRowMapper<>(Order.class));
-    }
         
-
     public List<Order> AllOrder(String phone){
         User u = Search_User(phone);
         List<Cart> clist = searchCart(phone);

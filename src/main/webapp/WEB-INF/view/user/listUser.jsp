@@ -15,7 +15,7 @@
     </head>
     <body class="bodyy">
         <c:set value="admin" var="admin" ></c:set>
-
+        <c:set value="0" var="zero"></c:set>
             <header>
             <%@include file="../product/header.jsp" %>
         </header>
@@ -28,7 +28,7 @@
                             <th>Password</th>
                             <th>Số điện thoại</th>
                             <th>Số dư tài khoản</th>
-                            <th>id</th>
+                            <th>Status</th>
 
                         </tr>
                     </thead>
@@ -38,15 +38,28 @@
                     <td>${u.password}</td>
                     <td>${u.phone}</td>
                     <td>${u.money}</td>
-                    <td>
-                        ${u.id}  
-                    </td>
+                    <c:if test="${name == admin}">
+                        <td>
+                            <p class="status status-paid">Admin</p>
+                        </td>
+                    </c:if>
+                    <c:if test="${u.money > zero}">
+                        <td>
+                            <p class="status status-paid">Good</p>
+                        </td>
+                    </c:if>
+                    <c:if test="${u.money <= zero && name != admin}">
+                        <td>
+                            <p class="status status-paid">Bad</p>
+                        </td>
+                    </c:if>
                 </tr>
             </table>
 
             <c:if test="${name != admin}">
                 <a href="./editUser.html?id=${u.id}" class="card-btn">Sửa<span>&rarr;</span></a>
                 <a href="./addMoneyUser.html?id=${u.id}" class="card-btn">Nạp Tiền<span>&rarr;</span></a>
+                <a href="./purchseHistory.html?id=${u.id}" class="card-btn">Lịch Sử Mua Hàng<span>&rarr;</span></a>
                 <a href="./deleteUser.html?id=${u.id}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm?')" class="card-btn">Xóa<span>&rarr;</span></a>
             </c:if>
 

@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Product;
 import model.Login;
+import model.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import model.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -30,6 +31,7 @@ public class UserDAO {
         this.jdbctemplate = jdbctemplate;
     }
 
+    //đăng ký user
     public void register(User user) {
         String sql1 = "select * from users where phone='" + user.getPhone() + "'";
         List<User> users = jdbctemplate.query(sql1, new UserMapper());
@@ -79,6 +81,7 @@ public class UserDAO {
         return jdbctemplate.update(sql, id);
     }
 
+    //chi tiết khách hàng
     public User DetailUser(int id) {
         String sql = "select * from users where id = ?";
         return jdbctemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(User.class));
@@ -93,7 +96,13 @@ public class UserDAO {
     /// xác định user nạp tài khoản
     public User Search_phone(String phone) {
         String sql = "select * from users where phone = ?";
-        return jdbctemplate.queryForObject(sql, new Object[]{ phone }, new BeanPropertyRowMapper<>(User.class));
+        return jdbctemplate.queryForObject(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(User.class));
+    }
+
+    //lấy danh sách order theo phone
+    public List<Order> AllOrder(String phone) {
+        String sql = "select * from orders where phone = ?";
+        return jdbctemplate.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
     }
 
 }
