@@ -33,7 +33,7 @@
             </tr>
         </tr>
     </table>
-    <footer style="margin-top: 280px">
+    <footer style="position: absolute;bottom: 0; width: 100%;">
         <%@include file="../footer.jsp" %>
     </footer>
 </body>

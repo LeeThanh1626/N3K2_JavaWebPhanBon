@@ -97,10 +97,10 @@
             </div>
         </div>
 
-    </div
+    
 
 
-    <footer style="padding:20px ">
+    <footer>
         <%@include file="../footer.jsp" %>
     </footer>
 </body>

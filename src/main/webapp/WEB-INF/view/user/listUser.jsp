@@ -52,7 +52,7 @@
 
         </c:forEach>
 
-        <footer><%@include file="../footer.jsp" %></footer>
+        <footer ><%@include file="../footer.jsp" %></footer>
     </body>
 
 </html>
