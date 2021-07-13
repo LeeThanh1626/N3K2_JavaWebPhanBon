@@ -23,11 +23,11 @@
             <form id="regForm" modelattribute="User" action="./loginProcess.html" method="post">
                 
                 <div>
-                    <label for="uname"><b>Phone Number: </b></label>
-                    <input type="text" placeholder="Nhập tên số điện thoại" name="phone" required>
+                    <label><b>Phone Number: </b></label>
+                    <input type="phone" name="phone" placeholder="Nhập tên số điện thoại" required>
                 </div>
                 <div >
-                    <label for="psw"><b>Password: </b></label>
+                    <label style="margin-left: 45px;" ><b>Password: </b></label>
                     <input type="password" placeholder="Nhập mật khẩu" name="password" required>
 
                 </div>
@@ -35,7 +35,7 @@
 
             </form>
         </section>
-        <footer style="margin-top: 30px">
+        <footer style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>  
         </footer>
     </body>

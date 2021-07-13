@@ -22,12 +22,17 @@
         <h1>
             Nạp tiền vào tài khoản 
         </h1>
-        <form action="./XacNhan.html" method="GET">
-            <input hidden="phone" type="text" name="phone" value="${u.phone}">            
-            <table>
+        <form id="addproduct" action="./XacNhan.html" method="GET">
+            <table
                 <tr>
                     <td>
-                        Số Tiền Nạp: <input type="text" name="money"/> 
+                         Số Điện Thoại:<input hidden="phone" type="text" name="phone" value="${u.phone}">            
+ 
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        Số Tiền Nạp: <input style="margin-left: 10px" type="text" name="money"/> 
                     </td> 
                 </tr>            
                 <tr>
@@ -40,7 +45,7 @@
                 </tr>
             </table>
         </form>
-        <footer  style="margin-top: 250px">
+        <footer  style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>
         </footer>
     </body>

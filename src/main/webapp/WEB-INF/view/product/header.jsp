@@ -20,20 +20,19 @@
               overflow-x: hidden;">
             <header>
                 <div class="container-flux">
-                    <a href="list.html"><img class="img" src="./Allproduct/logo.svg" alt="" ></a>
+
+                    <a href="list.html"><img class="img" src="https://image.flaticon.com/icons/png/512/4082/4082010.png" alt="" ></a>
                     <c:if test="${name == admin}">
                     <form action="listSearch.html" method="GET">
                         <div class="group">
-                            <input type="search" placeholder="Tìm kiếm sản phẩm" name="name"/>
-                            <button title="Tìm Sản Phẩm" class="search-magnifier btn" type="submit">Tìm sản phẩm</button>
+                            <input type="search" placeholder="Nhập tên sản phẩm" name="name"/>
+                            <button  class="search-magnifier btn" type="submit">Tìm sản phẩm</button>
                         </div>
                     </form>
-                    <br/>
                     <form action="./SearchUser.html" method="GET">
                         <div class="group">
-                            <label ><b>Nhập số điện thoại: </b></label>
-                            <input type="search" placeholder="Tìm khách hàng" name="phone"/>
-                            <button title="Tìm Khách Hàng" class="search-magnifier btn" type="submit">Tìm Khách Hàng</button>
+                            <input type="search" placeholder="Nhập số điện thoại" name="phone"/>
+                            <button  class="search-magnifier btn" type="submit">Tìm Khách Hàng</button>
                         </div>
                     </form>
                 </c:if>
@@ -51,31 +50,36 @@
                     <a id="a" href="./logout.html">Đăng Xuất</a>
                 </div>
             </div>
+
+            <div class="topnav">
+
+                <c:if test="${name == admin}">
+                    <a   href="list.html">Tất cả sản phẩm</a>
+
+                    <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
+
+                    <a  href="add.html">Thêm Sản Phẩm</a>
+
+                    <a href="./listUser.html">Quản Lý Người Dùng</a>
+
+                    <a href="./addUser.html">Thêm Khách Hàng</a>
+                </c:if>
+                <c:if test="${name != admin}">
+                    <a   href="list.html">Tất cả sản phẩm</a>
+
+                    <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
+
+                    <div class="right">     
+                        <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
+                    </div>
+                </c:if>
+
+
+            </div>
         </header>
-        <div class="topnav">
 
-            <c:if test="${name == admin}">
-                <a class="active"  href="list.html">Tất cả sản phẩm</a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="Allproduct/css/main.js"></script>
 
-                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
-
-                <a  href="add.html">Thêm Sản Phẩm</a>
-
-                <a href="./listUser.html">Quản Lý Người Dùng</a>
-
-                <a href="./addUser.html">Thêm Khách Hàng</a>
-            </c:if>
-            <c:if test="${name != admin}">
-                <a class="active"  href="list.html">Tất cả sản phẩm</a>
-
-                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
-
-                <div class="right">     
-                    <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
-                </div>
-            </c:if>
-
-
-        </div>
     </body>
 </html>
