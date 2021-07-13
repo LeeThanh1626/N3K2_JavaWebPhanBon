@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body style="overflow-y: scroll;
@@ -28,14 +29,14 @@
                
                 <div>
                     <label for="uname"><b>Phone:   </b></label>
-                    <input style="margin-left: 33px" type="phone" name="phone" placeholder="Nhập số điện thoại"  required>
+                    <input  type="phone" name="phone" placeholder="Nhập số điện thoại"  required>
                 </div>
                 <div >
                     <label for="psw"><b>Password: </b></label>
                     <input type="password" placeholder="Nhập mật khẩu" name="password" required>
                 </div>
 
-                <button style="margin-left: 250px" type="submit">Register</button>
+                <button  type="submit">Register</button>
 
             </form>
         </section>

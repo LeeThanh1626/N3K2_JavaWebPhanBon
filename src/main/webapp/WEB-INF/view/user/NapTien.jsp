@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <%@include file="../product/header.jsp" %>
@@ -26,13 +27,15 @@
             <table
                 <tr>
                     <td>
-                         Số Điện Thoại:<input hidden="phone" type="text" name="phone" value="${u.phone}">            
+                        <label ><b>Số Điện Thoại: </b></label>
+                         <input  type="text" name="phone" value="${u.phone}">            
  
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        Số Tiền Nạp: <input style="margin-left: 10px" type="text" name="money"/> 
+                        <label ><b>Số Tiền Nạp: </b></label>
+                         <input type="text" name="money"/> 
                     </td> 
                 </tr>            
                 <tr>

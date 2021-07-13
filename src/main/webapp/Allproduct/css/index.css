@@ -129,11 +129,22 @@ html {
   padding: 16px;
   
 }
+label {
+    width:150px;
+    clear:left;
+    text-align:right;
+    padding-right:10px;
+    margin-top: 22px;
+}
+input, label {
+    float:left;
+}
 form[id=regForm],form[id=addproduct],form[id=editproduct]{
   border: 3px solid #f1f1f1;
   padding: 20px 20px;
   margin-left: 400px;
   display: inline-block;
+  
 }
 form[id=addBook] {
   border: 3px solid #f1f1f1;
@@ -150,19 +161,18 @@ h1{
 /* Full-width inputs */
 input[type=phone],input[type=password],input[type=text],input[type=file] {
   width: 500px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+ padding: 12px 20px;
+  margin: 8px;
+ 
+  
 }
 
 /* Set a style for all buttons */
 button {
   background-color: #04AA6D;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  
+    padding: 9px 15px;
   border: none;
   cursor: pointer;
   width: 100px;

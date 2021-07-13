@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/header1.css">
     </head>
     <%--tạo biến admin, so sánh vs tên user => xác định admin--%>
@@ -39,8 +40,8 @@
                 <c:if test="${name != admin}">
                     <form action="listSearch.html" method="GET">
                         <div class="group">
-                            <input type="search" placeholder="Tìm kiếm sách" name="name"/>
-                            <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                            <input type="search" placeholder="Nhập tên sản phẩm" name="name"/>
+                            <button title="Nhập tên sản phẩm" class="search-magnifier btn" type="submit">Tìm Sản Phẩm</button>
                         </div>
                     </form> 
                 </c:if>
@@ -78,8 +79,6 @@
             </div>
         </header>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript" src="Allproduct/css/main.js"></script>
-
+        
     </body>
 </html>
