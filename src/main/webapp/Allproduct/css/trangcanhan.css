@@ -7,7 +7,26 @@ and open the template in the editor.
     Created on : Jul 6, 2021, 11:40:14 AM
     Author     : NAM
 */
-
+html {
+    box-sizing: border-box;
+    font-size: 70%;
+}
+.card-btn {
+    display: grid;
+  
+    margin: 5px;
+    
+    font-size: 15px;
+    text-align: center;
+    color: #3363ff;
+    background-color: #d8e0fd;
+    border: none;
+    border-radius: 0.4rem;
+    transition: 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+}
 table {
   border-collapse: collapse;
   box-shadow: 0 5px 10px #e1e5ee;
