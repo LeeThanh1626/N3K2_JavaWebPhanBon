@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body>
@@ -24,7 +25,7 @@
             </div>
             <div >
                 <label ><b>Password:  </b></label>
-                <input style="margin-left: 55px" type="text" name="password" required>
+                <input  type="text" name="password" required>
             </div>
             <%--
             <label ><b>Hình Ảnh:  </b></label><div>
@@ -35,7 +36,7 @@
             --%>
             <div>
                 <label ><b>Số Điên Thoại: </b></label>
-                <input style="margin-left: 18px" type="text" name="phone" ></input>                    
+                <input type="text" name="phone" ></input>                    
             </div>
             <div>
                 <button style="margin-left: 250px" type="submit">Cập nhật</button>

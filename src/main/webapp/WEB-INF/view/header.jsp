@@ -8,7 +8,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/header.css">
     </head>
     <body>
@@ -19,7 +20,7 @@
                 <form action="listSearch.html" method="GET">
                     <div class="group">
                         <input type="search" placeholder="Tìm kiếm phân bón" name="name"/>
-                        <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm Kiếm</button>
+                        <button title="Tìm phân bón" class="search-magnifier btn" type="submit">Tìm Kiếm</button>
                     </div>
                 </form>
                 <div class="login">
