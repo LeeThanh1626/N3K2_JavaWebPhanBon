@@ -68,21 +68,14 @@ img{
 }   
 
 .group button{
-    position: absolute;
+  
     border-radius: 30px;
     background-color: #057A45;
-    background-image: none;
-    border: none;
     color: #ffffff;
     width: 100px;
-    top:7px;
+    
 }
 
-
-input {
-  outline: none;
-  width: 200px;
-}
 input[type=search] {
   -webkit-appearance: textfield;
   -webkit-box-sizing: content-box;
@@ -133,10 +126,10 @@ input::-webkit-input-placeholder {
   padding: 16px;
   
 }
-form[id=regForm] {
+form[id=regForm],form[id=addproduct],form[id=editproduct]{
   border: 3px solid #f1f1f1;
   padding: 20px 20px;
-  margin-left: 300px;
+  margin-left: 400px;
   display: inline-block;
 }
 form[id=addBook] {
@@ -152,7 +145,7 @@ h1{
     margin-left: 100px;
 }
 /* Full-width inputs */
-input[type=text][name=email], input[type=password] {
+input[type=phone],input[type=password],input[type=text],input[type=file] {
   width: 500px;
   padding: 12px 20px;
   margin: 8px 0;

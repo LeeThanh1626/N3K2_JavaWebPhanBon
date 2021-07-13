@@ -18,17 +18,17 @@
         <header>
             <%@include file="../header.jsp" %> 
         </header>
-        <section background-image: url("paper.gif");>
+        <section>
                  <h1 >Đăng Ký</h1>
             <form id="regForm" modelattribute="User" action="./registerProcess.html" method="post">
                 <div>
                     <label for="uname"><b>Username: </b></label>
-                    <input type="text" name="name" value="admin" readonly="readonly"></input>
+                    <input type="phone" name="name" placeholder="Nhập tên đăng nhập" readonly="readonly"></input>
                 </div>
-                <br/>
+               
                 <div>
                     <label for="uname"><b>Phone:   </b></label>
-                    <input style="margin-left: 33px" type="text" placeholder="Nhập số điện thoại" name="phone" required>
+                    <input style="margin-left: 33px" type="phone" name="phone" placeholder="Nhập số điện thoại"  required>
                 </div>
                 <div >
                     <label for="psw"><b>Password: </b></label>
@@ -39,7 +39,7 @@
 
             </form>
         </section>
-        <footer style="margin-top: 30px">
+        <footer style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>  
         </footer:>
 </body>

@@ -10,20 +10,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body>
         <header>
             <%@include file="../product/header.jsp" %> 
         </header>           
         <h1>Thêm Khách Hàng </h1>
-        <form action="./Save.html" method="POST">
+        <form id="addproduct" action="./Save.html" method="POST">
             <div>
                 <label ><b>Tên khách hàng: </b></label>
                 <input type="text" name="name" required>
             </div>
             <div >
                 <label ><b>Password:  </b></label>
-                <input type="text" name="password" required>
+                <input style="margin-left: 55px" type="text" name="password" required>
             </div>
             <%--
             <label ><b>Hình Ảnh:  </b></label><div>
@@ -34,13 +35,13 @@
             --%>
             <div>
                 <label ><b>Số Điên Thoại: </b></label>
-                <input type="text" name="phone" ></input>                    
+                <input style="margin-left: 18px" type="text" name="phone" ></input>                    
             </div>
             <div>
                 <button style="margin-left: 250px" type="submit">Cập nhật</button>
             </div>
         </form>
-        <footer>
+        <footer style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>
         </footer>
     </body>
