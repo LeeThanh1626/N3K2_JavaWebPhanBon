@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body>
@@ -27,11 +28,11 @@
                     </div>
                     <div >
                         <label ><b>Quy cách:   </b></label>
-                        <input style="margin-left: 45px" type="text" placeholder="Nhập quy cách" name="specifications" required>
+                        <input  type="text" placeholder="Nhập quy cách" name="specifications" required>
                     </div>
                     <div >
                         <label ><b>Giá Tiền:   </b></label>
-                        <input style="margin-left: 55px" type="text" placeholder="Nhập giá tiền" name="price" required>
+                        <input  type="text" placeholder="Nhập giá tiền" name="price" required>
                     </div>
                     <div >
                         <label ><b>Ưu đãi:   </b></label>
@@ -39,7 +40,7 @@
                     </div>
                     <div>
                         <label ><b>Hình Ảnh: </b></label> 
-                        <input style="margin-left: 45px" type="file" id="pic" name="pic">
+                        <input  type="file" id="pic" name="pic">
                     </div>
                     <%--
                     <div>

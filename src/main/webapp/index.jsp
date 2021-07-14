@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
         <link rel="stylesheet" href="Allproduct/css/index.css">
         <link rel="stylesheet" href="./Allproduct/css/header.css">
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
 
     </head>
     <body style="background: gainsboro;overflow-y: scroll; overflow-x: hidden;">
