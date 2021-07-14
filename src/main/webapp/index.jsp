@@ -9,8 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
         <link rel="stylesheet" href="Allproduct/css/index.css">
+        <link rel="stylesheet" href="./Allproduct/css/header.css">
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
 
     </head>
     <body style="background: gainsboro;overflow-y: scroll; overflow-x: hidden;">
@@ -20,19 +23,25 @@
         <section>
             <div class="slideshow-container">
                 <div class="mySlides fade ">
-                    <img src="Allproduct/sach3.jpg" >
+                    <img src="Allproduct/3.png" >
                 </div>
                 <div class="mySlides fade">
-                    <img src="Allproduct/sach2.jpg" >
+                    <img src="Allproduct/2.png" >
                 </div>
                 <div class="mySlides ">
-                    <img src="Allproduct/sach1.jpg" >
+                    <img src="Allproduct/3.png" >
                 </div>
                 <div class="mySlides ">
-                    <img src="Allproduct/sach5.jpg" >
+                    <img src="Allproduct/4.png" >
                 </div>   
                 <div class="mySlides ">
-                    <img src="Allproduct/sach1.jpg" >
+                    <img src="Allproduct/5.png" >
+                </div>   
+                  <div class="mySlides ">
+                    <img src="Allproduct/6.png" >
+                </div>   
+                  <div class="mySlides ">
+                    <img src="Allproduct/7.png" >
                 </div>   
             </div>
 

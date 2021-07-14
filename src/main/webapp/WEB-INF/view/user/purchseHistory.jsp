@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/trangcanhan.css">
     </head>
     <body>
@@ -23,7 +24,7 @@
                         <th>Tên User</th>
                         <th>Số điện thoại</th>
                         <th>Tên sản phẩm</th>
-                        <th>Giá sả phẩm</th>
+                        <th>Giá sản phẩm</th>
                         <th>Số lượng mua</th>
                         <th>Tổng tiền</th>
                         <th>Ngày mua</th>

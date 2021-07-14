@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body style="overflow-y: scroll;
@@ -23,19 +24,19 @@
             <form id="regForm" modelattribute="User" action="./loginProcess.html" method="post">
                 
                 <div>
-                    <label for="uname"><b>Phone Number: </b></label>
-                    <input type="text" placeholder="Nhập tên số điện thoại" name="phone" required>
+                    <label><b>Phone Number: </b></label>
+                    <input type="phone" name="phone" placeholder="Nhập tên số điện thoại" required>
                 </div>
                 <div >
-                    <label for="psw"><b>Password: </b></label>
+                    <label  ><b>Password: </b></label>
                     <input type="password" placeholder="Nhập mật khẩu" name="password" required>
 
                 </div>
-                <button style="margin-left: 250px" type="submit">Login</button>
+                <button type="submit">Login</button>
 
             </form>
         </section>
-        <footer style="margin-top: 30px">
+        <footer style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>  
         </footer>
     </body>

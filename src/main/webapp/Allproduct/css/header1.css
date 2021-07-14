@@ -20,10 +20,7 @@ and open the template in the editor.
 header{
     position: relative;
 }
-.img{
-    width: 100px;
-    height: 100px;
-}
+
 .container-flux{
     background-color: gray;
     padding:10px;
@@ -54,9 +51,11 @@ header{
     border-radius: 30px;
     background-color: #057A45;
     background-image: none;
-    border: none;
+    height: 100%;
     color: #ffffff;
-    width: 100px;
+    width: 150px;
+    
+    
     
 }
 
@@ -136,7 +135,7 @@ input::-webkit-input-placeholder {
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.active {
   background-color: #04AA6D;
   color: white;
 }

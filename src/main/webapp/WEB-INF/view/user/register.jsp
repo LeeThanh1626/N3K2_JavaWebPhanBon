@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body style="overflow-y: scroll;
@@ -18,28 +19,28 @@
         <header>
             <%@include file="../header.jsp" %> 
         </header>
-        <section background-image: url("paper.gif");>
+        <section>
                  <h1 >Đăng Ký</h1>
             <form id="regForm" modelattribute="User" action="./registerProcess.html" method="post">
                 <div>
                     <label for="uname"><b>Username: </b></label>
-                    <input type="text" name="name" placeholder="Nhập tên người dùng" ></input>
+                    <input type="phone" name="name" placeholder="Nhập tên đăng nhập" readonly="readonly"></input>
                 </div>
-                <br/>
+               
                 <div>
                     <label for="uname"><b>Phone:   </b></label>
-                    <input style="margin-left: 33px" type="text" placeholder="Nhập số điện thoại" name="phone" required>
+                    <input  type="phone" name="phone" placeholder="Nhập số điện thoại"  required>
                 </div>
                 <div >
                     <label for="psw"><b>Password: </b></label>
                     <input type="password" placeholder="Nhập mật khẩu" name="password" required>
                 </div>
 
-                <button style="margin-left: 250px" type="submit">Register</button>
+                <button  type="submit">Register</button>
 
             </form>
         </section>
-        <footer style="margin-top: 30px">
+        <footer style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>  
         </footer:>
 </body>

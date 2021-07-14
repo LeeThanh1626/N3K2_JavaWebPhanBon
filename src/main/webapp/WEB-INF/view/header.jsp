@@ -8,17 +8,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" href="./AllBook/css/header.css">
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
+        <link rel="stylesheet" href="./Allproduct/css/header.css">
     </head>
     <body>
         <header>
             <div class="container-flux">
-               <a href="index.jsp"><img class="img" src="./AllBook/logo.svg" alt="" ></a>
+                
+               <a href="index.jsp"><img class="img" src="https://image.flaticon.com/icons/png/512/4082/4082010.png" alt="" ></a>
                 <form action="listSearch.html" method="GET">
                     <div class="group">
-                        <input type="search" placeholder="Tìm kiếm sách" name="name"/>
-                        <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                        <input type="search" placeholder="Tìm kiếm phân bón" name="name"/>
+                        <button title="Tìm phân bón" class="search-magnifier btn" type="submit">Tìm Kiếm</button>
                     </div>
                 </form>
                 <div class="login">

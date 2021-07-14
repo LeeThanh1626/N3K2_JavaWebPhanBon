@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/listSach.css">
     </head>
     <body class="body">
@@ -24,6 +25,7 @@
                         <div class="card-content">
                             <h1 class="card-header"> ${b.name}</h1>
                             <p class="card-text">${b.price}<span>VND</span></p>
+                            <p class="card-text">Ưu đãi: ${b.discount * 100}<span>%</span></p>
                             <c:set value="${name}" var="name" ></c:set>
                             <c:if test="${name == admin}">
                                 <a href="./detailproduct.html?id=${b.id}" class="card-btn">Chi tiết<span>&rarr;</span></a>

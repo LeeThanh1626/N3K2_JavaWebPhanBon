@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <%@include file="./header.jsp" %>
@@ -25,6 +26,7 @@
                         <div class="p-4 bd-highlight">
                             <h5 class="card-title"> ${b.name}</h5>
                             <p class="card-title"> ${b.price}</p>
+                            <p class="card-title"> Ưu đãi: ${b.disount}%</p>
                         </div>
                         <div>
                             <a href="./detail.html?name=${b.name}">Chi Tiết</a>
@@ -37,6 +39,7 @@
             </div> 
         </div>               
     </c:forEach>
+        
 </body>
 <%@include file="../footer.jsp" %>
 </html>

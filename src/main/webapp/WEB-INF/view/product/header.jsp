@@ -10,7 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/header1.css">
     </head>
     <%--tạo biến admin, so sánh vs tên user => xác định admin--%>
@@ -20,28 +21,27 @@
               overflow-x: hidden;">
             <header>
                 <div class="container-flux">
-                    <a href="list.html"><img class="img" src="./Allproduct/logo.svg" alt="" ></a>
+
+                    <a href="list.html"><img class="img" src="https://image.flaticon.com/icons/png/512/4082/4082010.png" alt="" ></a>
                     <c:if test="${name == admin}">
                     <form action="listSearch.html" method="GET">
                         <div class="group">
-                            <input type="search" placeholder="Tìm kiếm sản phẩm" name="name"/>
-                            <button title="Tìm Sản Phẩm" class="search-magnifier btn" type="submit">Tìm sản phẩm</button>
+                            <input type="search" placeholder="Nhập tên sản phẩm" name="name"/>
+                            <button  class="search-magnifier btn" type="submit">Tìm sản phẩm</button>
                         </div>
                     </form>
-                    <br/>
                     <form action="./SearchUser.html" method="GET">
                         <div class="group">
-                            <label ><b>Nhập số điện thoại: </b></label>
-                            <input type="search" placeholder="Tìm khách hàng" name="phone"/>
-                            <button title="Tìm Khách Hàng" class="search-magnifier btn" type="submit">Tìm Khách Hàng</button>
+                            <input type="search" placeholder="Nhập số điện thoại" name="phone"/>
+                            <button  class="search-magnifier btn" type="submit">Tìm Khách Hàng</button>
                         </div>
                     </form>
                 </c:if>
                 <c:if test="${name != admin}">
                     <form action="listSearch.html" method="GET">
                         <div class="group">
-                            <input type="search" placeholder="Tìm kiếm sách" name="name"/>
-                            <button title="Tìm sách" class="search-magnifier btn" type="submit">Tìm sách</button>
+                            <input type="search" placeholder="Nhập tên sản phẩm" name="name"/>
+                            <button title="Nhập tên sản phẩm" class="search-magnifier btn" type="submit">Tìm Sản Phẩm</button>
                         </div>
                     </form> 
                 </c:if>
@@ -51,11 +51,11 @@
                     <a id="a" href="./logout.html">Đăng Xuất</a>
                 </div>
             </div>
-        </header>
-        <div class="topnav">
 
-            <c:if test="${name == admin}">
-                <a class="active"  href="list.html">Tất cả sản phẩm</a>
+            <div class="topnav">
+
+                <c:if test="${name == admin}">
+                <a href="list.html">Tất cả sản phẩm</a>
 
                 <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
 
@@ -69,7 +69,7 @@
                 
             </c:if>
             <c:if test="${name != admin}">
-                <a class="active"  href="list.html">Tất cả sản phẩm</a>
+                <a href="list.html">Tất cả sản phẩm</a>
 
                 <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
 
@@ -78,7 +78,9 @@
                 </div>
             </c:if>
 
+            </div>
+        </header>
 
-        </div>
+        
     </body>
 </html>

@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <body>
@@ -18,7 +19,7 @@
             <%@include file="./header.jsp" %> 
         </header>
         <section>
-            <div class="addproduct">
+            
                 <h1>Thông Tin Sản Phẩm Cần Thêm</h1>
                 <form id="addproduct" action="./upload.html" method="POST" enctype="multipart/form-data">
                     <div>
@@ -27,15 +28,19 @@
                     </div>
                     <div >
                         <label ><b>Quy cách:   </b></label>
-                        <input type="text" placeholder="Nhập quy cách" name="specifications" required>
+                        <input  type="text" placeholder="Nhập quy cách" name="specifications" required>
                     </div>
                     <div >
                         <label ><b>Giá Tiền:   </b></label>
-                        <input type="text" placeholder="Nhập giá tiền" name="price" required>
+                        <input  type="text" placeholder="Nhập giá tiền" name="price" required>
+                    </div>
+                    <div >
+                        <label ><b>Ưu đãi:   </b></label>
+                        <input style="margin-left: 55px" type="text" placeholder="Nhập giá tiền" name="price" required>
                     </div>
                     <div>
-                        <label ><b>Hình Ảnh: </b></label> <br/>  
-                        Image1:<input type="file" id="pic" name="pic">
+                        <label ><b>Hình Ảnh: </b></label> 
+                        <input  type="file" id="pic" name="pic">
                     </div>
                     <%--
                     <div>
@@ -48,9 +53,9 @@
                     </div>  
 
                 </form>
-            </div>
+            
         </section>
-        <footer style="margin-top: 100px">
+        <footer style="margin-top: 20px">
             <%@include file="../footer.jsp" %>
         </footer>
     </body>

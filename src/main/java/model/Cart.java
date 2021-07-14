@@ -21,6 +21,7 @@ public class Cart implements Serializable {
     private float price;
     private int amount;
     private float totalmoney;
+    private double discount;
 
     public int getId() {
         return id;
@@ -85,6 +86,15 @@ public class Cart implements Serializable {
     public void setTotalmoney(float totalmoney) {
         this.totalmoney = totalmoney;
     }
+    
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
 
     public Cart() {
 

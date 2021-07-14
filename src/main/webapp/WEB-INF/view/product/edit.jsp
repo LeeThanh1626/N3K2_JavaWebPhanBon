@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/edit.css">
-
+        <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
 
     <body>
@@ -20,7 +21,7 @@
         </header>
         <section>
             <div  >
-                <h1>Thông Tin Sách</h1>
+                <h1>Thông Tin Sản Phẩm</h1>
                 <form id="editproduct" action="./upload.html" method="POST" enctype="multipart/form-data">
                     <input hidden="id" type="text" name="id" value="${b.id}">
                     <label ><b>Hình Ảnh:  </b></label><div>
@@ -38,6 +39,10 @@
                     <div>
                         <label ><b>Quy Cách: </b></label>
                         <input type="text" name="specifications" rows="10" cols ="90" value="${b.specifications}"></input>                    
+                    </div>
+                    <div>
+                        <label ><b>Ưu đãi: </b></label>
+                        <input type="text" name="discount" rows="10" cols ="90" value="${b.discount}"></input>                    
                     </div>
                     <button style="margin-left: 50px" type="submit">Cập nhật</button>
 

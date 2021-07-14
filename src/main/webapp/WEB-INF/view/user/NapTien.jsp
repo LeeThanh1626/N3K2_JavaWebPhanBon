@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PHÂN BÓN</title>
+        <link rel="icon" href="Allproduct/buffalo-_1_.ico">
         <link rel="stylesheet" href="./Allproduct/css/index.css">
     </head>
     <%@include file="../product/header.jsp" %>
@@ -22,12 +23,19 @@
         <h1>
             Nạp tiền vào tài khoản 
         </h1>
-        <form action="./XacNhan.html" method="GET">
-            <input hidden="phone" type="text" name="phone" value="${u.phone}">            
-            <table>
+        <form id="addproduct" action="./XacNhan.html" method="GET">
+            <table
                 <tr>
                     <td>
-                        Số Tiền Nạp: <input type="text" name="money"/> 
+                        <label ><b>Số Điện Thoại: </b></label>
+                         <input  type="text" name="phone" value="${u.phone}">            
+ 
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <label ><b>Số Tiền Nạp: </b></label>
+                         <input type="text" name="money"/> 
                     </td> 
                 </tr>            
                 <tr>
@@ -40,7 +48,7 @@
                 </tr>
             </table>
         </form>
-        <footer  style="margin-top: 250px">
+        <footer  style="position: absolute;bottom: 0; width: 100%;">
             <%@include file="../footer.jsp" %>
         </footer>
     </body>
