@@ -7,6 +7,7 @@ package controller;
 
 //import cartdao.CartDAO;
 import dao.CartDAO;
+import dao.UserDAO;
 import dao.CartExcelExporter;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -36,6 +37,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class CartController {
 
     @Autowired
+    UserDAO userdao;
+    @Autowired
     CartDAO cartdao;
     @Autowired
     ProductDAO dao;
@@ -56,16 +59,33 @@ public class CartController {
         List<Cart> lst = cartdao.AllCart(phone);
         ModelAndView cart = new ModelAndView("product/cart", "list", lst);
         cart.addObject("name", name);
+        
+        List<User> tempUser = userdao.Search_User(phone);
+        double heso = 0;
+        for (User i : tempUser){
+            heso = i.getEndow();
+            cart.addObject("heso", heso);
+        }
 
-        float total = 0;
+        //total la tng tien hang
+        double total = 0;
+        //money la tong tien phai thanh toan
+        double money = 0;
         for (Cart i : lst) {
             //lấy giá theo 1kg
             float price = i.getPrice() / i.getSpecifications();
             //lấy số kg đc mua 
             int amount = i.getAmount();
+            double discount = i.getDiscount();
             //thành tiền
-            total += price * amount;
-            cart.addObject("money", total);
+            if( discount == 0 ){
+                total += price * amount;
+            }else{
+                total += price * amount - price * amount * discount;
+            }
+            money = total - total * heso;
+            cart.addObject("total", total);
+            cart.addObject("money", money);
             cart.addObject("phone", i.getPhone());
         }
         return cart;
@@ -84,6 +104,7 @@ public class CartController {
         cart.setSpecifications(b.getSpecifications());
         //mặc định mua đúng bằng số kg của quy cách
         cart.setAmount(b.getSpecifications());
+        cart.setDiscount(b.getDiscount());
         Cookie arr[] = request.getCookies();
         for (Cookie o : arr) {
             if (o.getName().equals("phoneC")) {

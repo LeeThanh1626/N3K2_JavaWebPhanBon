@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String password;
     private String phone;
     private double money;
+    private double endow;
 
     public int getId() {
         return id;
@@ -57,6 +58,14 @@ public class User implements Serializable {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+    
+    public double getEndow() {
+        return endow;
+    }
+
+    public void setEndow(double endow) {
+        this.endow = endow;
     }
 
     public User() {

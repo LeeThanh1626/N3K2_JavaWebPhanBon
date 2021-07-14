@@ -17,6 +17,7 @@ public class Product implements Serializable{
     private float  price;
     private String pic;
     private int specifications;//quy cách 
+    private double discount;
 
     public int getId() {
         return id;
@@ -58,6 +59,14 @@ public class Product implements Serializable{
         this.specifications = specifications;
     }
     
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
     public Product(){
         
     }

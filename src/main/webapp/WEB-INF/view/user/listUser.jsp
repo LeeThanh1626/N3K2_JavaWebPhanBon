@@ -30,6 +30,7 @@
                             <th>Password</th>
                             <th>Số điện thoại</th>
                             <th>Số dư tài khoản</th>
+                            <th>Hệ số ưu đãi</th>
                             <th>Status</th>
 
                         </tr>
@@ -40,6 +41,7 @@
                     <td>${u.password}</td>
                     <td>${u.phone}</td>
                     <td>${u.money}</td>
+                    <td>${u.endow}</td>
                     <c:if test="${name == admin}">
                         <td>
                             <p class="status status-paid">Admin</p>

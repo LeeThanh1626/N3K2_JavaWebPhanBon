@@ -24,7 +24,7 @@
                         <th>Tên User</th>
                         <th>Số điện thoại</th>
                         <th>Tên sản phẩm</th>
-                        <th>Giá sả phẩm</th>
+                        <th>Giá sản phẩm</th>
                         <th>Số lượng mua</th>
                         <th>Tổng tiền</th>
                         <th>Ngày mua</th>

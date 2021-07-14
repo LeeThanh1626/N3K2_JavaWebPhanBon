@@ -40,6 +40,10 @@
                         <label ><b>Quy Cách: </b></label>
                         <input type="text" name="specifications" rows="10" cols ="90" value="${b.specifications}"></input>                    
                     </div>
+                    <div>
+                        <label ><b>Ưu đãi: </b></label>
+                        <input type="text" name="discount" rows="10" cols ="90" value="${b.discount}"></input>                    
+                    </div>
                     <button style="margin-left: 50px" type="submit">Cập nhật</button>
 
                 </form>

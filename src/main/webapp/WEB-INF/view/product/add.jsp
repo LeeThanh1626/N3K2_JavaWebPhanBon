@@ -34,6 +34,10 @@
                         <label ><b>Giá Tiền:   </b></label>
                         <input  type="text" placeholder="Nhập giá tiền" name="price" required>
                     </div>
+                    <div >
+                        <label ><b>Ưu đãi:   </b></label>
+                        <input style="margin-left: 55px" type="text" placeholder="Nhập giá tiền" name="price" required>
+                    </div>
                     <div>
                         <label ><b>Hình Ảnh: </b></label> 
                         <input  type="file" id="pic" name="pic">

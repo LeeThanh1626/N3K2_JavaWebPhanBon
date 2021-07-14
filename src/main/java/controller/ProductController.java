@@ -164,6 +164,9 @@ public class ProductController {
                 if ("specifications".equals(nameproduct)) {
                     b.setSpecifications(Integer.parseInt(item.getString()));
                 }
+                if ("discount".equals(nameproduct)) {
+                    b.setDiscount(Double.parseDouble(item.getString()));
+                }
             }
         }
         if (b.getId() == 0) {

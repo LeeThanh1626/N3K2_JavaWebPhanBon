@@ -26,6 +26,7 @@
                         <div class="p-4 bd-highlight">
                             <h5 class="card-title"> ${b.name}</h5>
                             <p class="card-title"> ${b.price}</p>
+                            <p class="card-title"> Ưu đãi: ${b.disount}%</p>
                         </div>
                         <div>
                             <a href="./detail.html?name=${b.name}">Chi Tiết</a>

@@ -42,26 +42,27 @@ public class ProductDAO {
                 b.setSpecifications(rs.getInt(3));
                 b.setPrice(rs.getFloat(4));
                 b.setPic(rs.getNString(5));
+                b.setDiscount(rs.getDouble(6));
                 return b;
             }
         });
     }
 
     public void Them(Product b) {
-        String sql = String.format("insert into product (name,specifications, price, pic) values('%s','%d','%f','%s')",
-                b.getName(), b.getSpecifications(), b.getPrice(), b.getPic());
+        String sql = String.format("insert into product (name,specifications, price, pic, discount) values('%s','%d','%f','%s','%f')",
+                b.getName(), b.getSpecifications(), b.getPrice(), b.getPic(), b.getDiscount());
         template.update(sql);
     }
 
     public int CapNhat(Product b) {
-        String sql = String.format("update product set price='%f',specifications='%d',pic='%s' where name=%s",
-                b.getPrice(), b.getSpecifications(), b.getPic(), b.getName());
+        String sql = String.format("update product set price='%f',specifications='%d',pic='%s',discount='%f' where name=%s",
+                b.getPrice(), b.getSpecifications(), b.getPic(), b.getDiscount(), b.getName());
         return template.update(sql);
     }
 
     public int CapNhat_NoImage(Product b) {
-        String sql = String.format("update product set name='%s' ,price='%f',specifications='%d' where id ='%d' ",
-                b.getName(), b.getPrice(), b.getSpecifications(), b.getId());
+        String sql = String.format("update product set name='%s' ,price='%f',specifications='%d',discount='%f' where id ='%d' ",
+                b.getName(), b.getPrice(), b.getSpecifications(), b.getDiscount(), b.getId());
         return template.update(sql);
     }
 
