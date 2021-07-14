@@ -6,9 +6,6 @@
 package dao;
 
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cart;
@@ -136,7 +133,8 @@ public class CartDAO {
                 for (Cart cart : clist) {
                     if (cart.getId() != 0) {
                         //lấy ngày hiện tại
-                        LocalDate day = LocalDate.now();
+                        long millis = System.currentTimeMillis();
+                        Date day = new Date(millis);
                         Order o = new Order();
                         o.setNameuser(u.getName());
                         o.setPhone(u.getPhone());
@@ -174,7 +172,8 @@ public class CartDAO {
         for (Cart cart : clist) {
             if (cart.getId() != 0) {
                 //lấy ngày hiện tại
-                LocalDate day = LocalDate.now();
+                long millis=System.currentTimeMillis();
+                Date day = new Date(millis);
                 Order o = new Order();
                 o.setNameuser(u.getName());
                 o.setPhone(u.getPhone());

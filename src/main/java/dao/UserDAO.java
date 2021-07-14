@@ -5,8 +5,12 @@
  */
 package dao;
 
+import java.sql.Date;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.sql.Array;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -103,6 +107,36 @@ public class UserDAO {
     public List<Order> AllOrder(String phone) {
         String sql = "select * from orders where phone = ?";
         return jdbctemplate.query(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(Order.class));
+    }
+
+    public List<Order> Search_OrderDay(Date tempday) {
+        String sql = "select * from orders where day = ?";
+        return jdbctemplate.query(sql, new Object[]{tempday}, new BeanPropertyRowMapper<>(Order.class));
+    }
+
+    /**
+     *
+     * @param date
+     * @param days
+     * @return
+     */
+    //hàm tăng 1 ngày
+    public Date addDays(Date date, int days) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, days);
+        return new Date(c.getTimeInMillis());
+    }
+
+    //lấy đơn hàng trong ngày của user
+    public Order Search_OrderDay(Date tempday, String nameuser) {
+        String sql = "select * from orders where day = ? and nameuser = ?";
+        return jdbctemplate.queryForObject(sql, new Object[]{tempday, nameuser}, new BeanPropertyRowMapper<>(Order.class)); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Order> ListOrder() {
+        String sql = "select * from orders";
+        return jdbctemplate.query(sql, new BeanPropertyRowMapper<>(Order.class));
     }
 
 }

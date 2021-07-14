@@ -7,7 +7,6 @@ package model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  *
@@ -22,13 +21,13 @@ public class Order implements Serializable {
     private float priceproduct;
     private int amount;
     private float total;
-    private LocalDate day;
+    private Date day;
 
-    public LocalDate getDay() {
+    public Date getDay() {
         return day;
     }
 
-    public void setDay(LocalDate day) {
+    public void setDay(Date day) {
         this.day = day;
     }
 
@@ -87,5 +86,6 @@ public class Order implements Serializable {
     public void setTotal(float total) {
         this.total = total;
     }
+
 
 }

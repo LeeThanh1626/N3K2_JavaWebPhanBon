@@ -5,11 +5,18 @@
  */
 package controller;
 
+import java.sql.Date;
 import dao.UserDAO;
+import java.text.ParseException;
+//import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import model.DoanhThu;
 import model.Order;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +69,7 @@ public class UserController {
         return "redirect:./";
     }
 
-    //Quản lý User 
+    //phần Admin Quản lý User 
     //list user 
     @RequestMapping(value = "/listUser", method = RequestMethod.GET)
     public ModelAndView ListUser(HttpServletRequest req) {
@@ -171,9 +178,102 @@ public class UserController {
         return "redirect:/listUser.html";
     }
 
+    // hiên giao diên doanh thu:
+    @RequestMapping(value = "/revenue")
+    public ModelAndView DoanhThu(HttpServletRequest req) {
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView addU = new ModelAndView("user/revenue");
+        addU.addObject("name", username);
+        return addU;
+    }
+
+    //xem thống kê:
+    @RequestMapping(value = "/statistical", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+    public ModelAndView XemThongKe(HttpServletRequest req) throws ParseException {
+//        string to java.sql.day
+        ModelAndView history = new ModelAndView("user/revenue");
+        if ("".equals(req.getParameter("startday")) && "".equals(req.getParameter("endday"))) {
+            JFrame frame = new JFrame("Swing Tester");
+            JOptionPane.showMessageDialog(frame,
+                    "Vui lòng chọn ngày", "",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            Date startday = Date.valueOf(req.getParameter("startday"));
+            Date enday = Date.valueOf(req.getParameter("endday"));
+            //tạo list lưu số tiền trong ngày theo user(list doanh thu)
+            List<DoanhThu> dthu = new ArrayList<>();
+            //date1 < date2, trả về giá trị nhỏ hơn 0 
+            int ss = startday.compareTo(enday);
+            List<Date> dates = new ArrayList<>();
+            if (ss < 0) {
+                Date tempday = startday;
+                while (tempday.compareTo(enday) <= 0) {
+                    //add ngày vào list
+
+                    dates.add(tempday);
+                    //list order theo ngay 
+                    List<Order> usday = userdao.Search_OrderDay(tempday);
+                    //orderday là ds đặt hàng trong ngày
+                    float money = 0;
+                    for (int j = 0; j < usday.size(); j++) {
+                        DoanhThu orderday = new DoanhThu();
+                        java.sql.Date oday = new java.sql.Date(usday.get(j).getDay().getTime());
+                        orderday.setNgay(oday);
+                        orderday.setName(usday.get(j).getNameuser());
+                        orderday.setTien(usday.get(j).getTotal());
+                        //khỏi tạo phần tử đầu doah thu
+                        if (dthu.isEmpty()) {
+                            dthu.add(orderday);
+                        }
+                        //kiểm tra từng dòng trong list order theo ngày
+
+                        for (int i = 0; i < dthu.size(); i++) {
+                            java.sql.Date dtdate = new java.sql.Date(dthu.get(i).getNgay().getTime());
+                            if (oday.equals(dtdate) == true) {
+                                if (orderday.getName() == dthu.get(i).getName()) {
+                                    money += orderday.getTien();
+                                    DoanhThu newdt = new DoanhThu();
+                                    newdt.setName(orderday.getName());
+                                    newdt.setNgay(orderday.getNgay());
+                                    newdt.setTien(money);
+                                    dthu.set(i, newdt);
+                                    continue;
+                                }
+                            }
+//                            if (orderday.getName() != dthu.get(i).getName()) {
+//                                dthu.add(orderday);
+//                                break;
+//                            }
+                        }
+                    }
+                    tempday = userdao.addDays(tempday, 1);
+                }
+            }
+            //xác đinh là admin đang truy cập trang
+            String username = "";
+            Cookie arr[] = req.getCookies();
+            for (Cookie o : arr) {
+                if (o.getName().equals("nameC")) {
+                    username = o.getValue();
+                }
+            }
+            history.addObject("name", username);
+            history.addObject("list", dates);
+            history.addObject("listUM", dthu);
+        }
+        return history;
+    }
+
     //tìm user theo sđt
     @RequestMapping(value = "/SearchUser", method = RequestMethod.GET)
-    public ModelAndView Search_User(HttpServletRequest req) {
+    public ModelAndView Search_User(HttpServletRequest req
+    ) {
         String phone = req.getParameter("phone");
         List<User> u = userdao.Search_User(phone);
         String username = "";

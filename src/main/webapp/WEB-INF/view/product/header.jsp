@@ -55,26 +55,28 @@
             <div class="topnav">
 
                 <c:if test="${name == admin}">
-                    <a   href="list.html">Tất cả sản phẩm</a>
+                <a href="list.html">Tất cả sản phẩm</a>
 
-                    <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
+                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
 
-                    <a  href="add.html">Thêm Sản Phẩm</a>
+                <a  href="add.html">Thêm Sản Phẩm</a>
 
-                    <a href="./listUser.html">Quản Lý Người Dùng</a>
+                <a href="./listUser.html">Quản Lý Người Dùng</a>
 
-                    <a href="./addUser.html">Thêm Khách Hàng</a>
-                </c:if>
-                <c:if test="${name != admin}">
-                    <a   href="list.html">Tất cả sản phẩm</a>
+                <a href="./addUser.html">Thêm Khách Hàng</a>
+                
+                <a href="./revenue.html">Xem doanh thu</a>
+                
+            </c:if>
+            <c:if test="${name != admin}">
+                <a href="list.html">Tất cả sản phẩm</a>
 
-                    <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
+                <a href="./TrangCaNhan.html">Trang Cá Nhân</a>
 
-                    <div class="right">     
-                        <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
-                    </div>
-                </c:if>
-
+                <div class="right">     
+                    <a  href="listcart.html"><img style="width: 20px;height: 20px;" src="./Allproduct/shopping-cart.svg"> Giỏ hàng</a>
+                </div>
+            </c:if>
 
             </div>
         </header>
