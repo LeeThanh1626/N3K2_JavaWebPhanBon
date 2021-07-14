@@ -21,7 +21,7 @@
         </header>
         <section>
             <div  >
-                <h1>Thông Tin Sách</h1>
+                <h1>Thông Tin Sản Phẩm</h1>
                 <form id="editproduct" action="./upload.html" method="POST" enctype="multipart/form-data">
                     <input hidden="id" type="text" name="id" value="${b.id}">
                     <label ><b>Hình Ảnh:  </b></label><div>
