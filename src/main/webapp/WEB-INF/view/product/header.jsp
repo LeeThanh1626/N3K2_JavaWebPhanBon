@@ -64,6 +64,9 @@
                 <a href="./listUser.html">Quản Lý Người Dùng</a>
 
                 <a href="./addUser.html">Thêm Khách Hàng</a>
+                
+                <a href="./revenue.html">Xem doanh thu</a>
+                
             </c:if>
             <c:if test="${name != admin}">
                 <a class="active"  href="list.html">Tất cả sản phẩm</a>

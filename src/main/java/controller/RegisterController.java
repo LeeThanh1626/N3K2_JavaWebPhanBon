@@ -26,7 +26,6 @@ public class RegisterController {
 
     @Autowired
     UserDAO userdao;
-
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("user/register");
