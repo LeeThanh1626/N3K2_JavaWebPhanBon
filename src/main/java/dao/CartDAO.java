@@ -53,8 +53,8 @@ public class CartDAO {
             int sl = product.getAmount() + product.getSpecifications();
             UpdateCart(sl, product.getId());
         } else {
-            String sql = String.format("insert into cart (phone,name, specifications,pic, price, amount) values('%s','%s','%d','%s','%f','%d')",
-                    cart.getPhone(), cart.getName(), cart.getSpecifications(), cart.getPic(), cart.getPrice(), cart.getAmount());
+            String sql = String.format("insert into cart (phone,name, specifications,pic, price, amount, discount) values('%s','%s','%d','%s','%f','%d','%f')",
+                    cart.getPhone(), cart.getName(), cart.getSpecifications(), cart.getPic(), cart.getPrice(), cart.getAmount(), cart.getDiscount());
             template.update(sql);
         }
     }

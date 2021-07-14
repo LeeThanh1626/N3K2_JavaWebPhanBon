@@ -30,6 +30,15 @@
                     <label ><b>Giá Tiền:  </b></label>  
                     <p class="card-text"> ${b.price}<span>VND</span></p>
                     
+                    <c:if test="${b.discount != 0}">
+                        <label ><b>Sản phẩm hiện đang được giảm:  </b></label>  
+                        <p class="card-text"> ${b.discount * 100}<span>%</span></p>
+                        <label ><b>Giá Tiền Sau Khi Giảm Giá:  </b></label>  
+                        <p class="card-text"> ${b.price - b.price * b.discount}<span>VND</span></p>
+                    </c:if>
+                    
+                    
+                    
                     <a href="./addcart.html?id=${b.id}" onclick="return confirm('Sản phẩm đã được thêm vào giỏ hàng')" class="card-btn">Thêm vào giỏ hàng<span>&rarr;</span></a>
                 </div>
             </div>

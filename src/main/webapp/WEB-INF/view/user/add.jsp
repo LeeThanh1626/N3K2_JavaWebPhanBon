@@ -38,7 +38,7 @@
                 <input style="margin-left: 18px" type="text" name="phone" ></input>                    
             </div>
             <div>
-                <button style="margin-left: 250px" type="submit">Cập nhật</button>
+                <button style="margin-left: 250px" type="submit">Thêm</button>
             </div>
         </form>
         <footer style="position: absolute;bottom: 0; width: 100%;">

@@ -37,7 +37,7 @@ public class UserDAO {
         List<User> users = jdbctemplate.query(sql1, new UserMapper());
         if (users.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Đăng ký thành công!!");
-            String sql = String.format("insert into users(name, password,phone, money) values('%s','%s','%s','%f')", user.getName(), user.getPassword(), user.getPhone(), 0.0);
+            String sql = String.format("insert into users(name, password,phone, money) values('%s','%s','%s','%f','%f')", user.getName(), user.getPassword(), user.getPhone(), 0.0, 0.0);
             jdbctemplate.update(sql);
         } else {
             user.setId(-1);
@@ -88,8 +88,8 @@ public class UserDAO {
     }
 
     public int CapNhat_NoImage(User u) {
-        String sql = String.format("update users set name='%s' ,password='%s', phone='%s' where id ='%d' ",
-                u.getName(), u.getPassword(), u.getPhone(), u.getId());
+        String sql = String.format("update users set name='%s' ,password='%s', phone='%s', endow='%f' where id ='%d' ",
+                u.getName(), u.getPassword(), u.getPhone(), u.getEndow(), u.getId());
         return jdbctemplate.update(sql);
     }
 
@@ -116,6 +116,7 @@ class UserMapper implements RowMapper<User> {
         user.setMoney(rs.getDouble("money"));
         user.setId(rs.getInt("id"));
         user.setPhone(rs.getString("phone"));
+        user.setEndow(rs.getDouble("endow"));
         return user;
     }
 }

@@ -21,7 +21,7 @@
         <section>
             <div class="slideshow-container">
                 <div class="mySlides fade ">
-                    <img src="Allproduct/1.jpg" >
+                    <img src="Allproduct/3.png" >
                 </div>
                 <div class="mySlides fade">
                     <img src="Allproduct/2.png" >

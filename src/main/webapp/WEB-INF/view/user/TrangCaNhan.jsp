@@ -23,6 +23,7 @@
                         <th>Tên User</th>
                         <th>Password</th>
                         <th>Số dư tài khoản</th>
+                        <th>Hệ số ưu đãi</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                 <tr> <td>${u.name}</td>
                 <td>${u.password}</td>
                 <td>${u.money}</td>
+                <td>${u.endow}</td>
                 <c:if test="${u.money > zero}">
                     <td>
                         <p class="status status-paid">Good</p>

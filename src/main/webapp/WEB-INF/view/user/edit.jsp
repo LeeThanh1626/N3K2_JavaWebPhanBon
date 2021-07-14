@@ -36,11 +36,15 @@
                 <input type="text" name="phone" value="${u.phone}"></input>                    
             </div>
             <div>
-                <label ><b>Số dư tài khoản: </b>${u.money}</label>  
-                
+                <label ><b>Số dư tài khoản: </b></label>  
+                <input type="text" name="money" value="${u.money}" disabled></input>   
             </div>
             <div>
-                <button style="margin-left: 250px" type="submit">Cập nhật</button>
+                <label ><b>Hệ số ưu đãi: </b></label>
+                <input type="text" name="endow" value="${u.endow}"></input>                    
+            </div>
+            <div>
+                <button style="margin-right: 10px" type="submit">Cập nhật</button>
             </div>
         </form>
         <footer>

@@ -62,7 +62,7 @@
                                         </div>
                                     </th>
                                      <td class="align-middle"><strong>${o.specifications}</strong></td>
-                                    <td class="align-middle"><strong>${o.price}</strong></td>
+                                    <td class="align-middle"><strong>${o.price - o.price * o.discount}</strong></td>
                                     <td class="align-middle">
                                         <a href="./subproductcart.html?id=${o.id}"><button class="btnSub">-</button></a>
                                         <strong>${o.amount}</strong>
@@ -86,9 +86,12 @@
                 <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>
                 <div class="p-4">
                     <ul class="list-unstyled mb-4">
-                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${money}đ</strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${total}đ</strong></li>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10000đ</strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tài khoản của bạn được ưu đãi: </strong><strong>${heso * 100}%</strong></li>
+                        <br>
+                        <br>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>
                             <h5 class="font-weight-bold">${money+10000}đ</h5>
                         </li>
