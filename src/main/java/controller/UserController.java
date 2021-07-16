@@ -6,7 +6,9 @@
 package controller;
 
 import java.sql.Date;
+
 import dao.UserDAO;
+
 import java.text.ParseException;
 //import java.sql.Date;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import model.DoanhThu;
 import model.Order;
 import model.User;
@@ -27,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
  * @author Dell 7450
  */
 @Controller
@@ -215,44 +217,34 @@ public class UserController {
                 Date tempday = startday;
                 while (tempday.compareTo(enday) <= 0) {
                     //add ngày vào list
-
                     dates.add(tempday);
                     //list order theo ngay 
                     List<Order> usday = userdao.Search_OrderDay(tempday);
-                    //orderday là ds đặt hàng trong ngày
-                    float money = 0;
-                    for (int j = 0; j < usday.size(); j++) {
-                        DoanhThu orderday = new DoanhThu();
-                        java.sql.Date oday = new java.sql.Date(usday.get(j).getDay().getTime());
-                        orderday.setNgay(oday);
-                        orderday.setName(usday.get(j).getNameuser());
-                        orderday.setTien(usday.get(j).getTotal());
-                        //khỏi tạo phần tử đầu doah thu
-                        if (dthu.isEmpty()) {
-                            dthu.add(orderday);
+//                    DoanhThu newdt = new DoanhThu();
+                    for (int i = 0; i < usday.size(); i++) {
+                        //tất cả đơn hàng của 1 người trong ngày
+                        List<Order> ouday = userdao.Search_OrderDay(tempday, usday.get(i).getNameuser());
+                        float money = 0;
+                        DoanhThu newdt = new DoanhThu();
+                        for (int j = 0; j < ouday.size(); j++) {
+                            money += ouday.get(j).getTotal();
+                            newdt.setName(ouday.get(j).getNameuser());
+                            newdt.setNgay(ouday.get(j).getDay());
+                            newdt.setTien(money);
                         }
-                        //kiểm tra từng dòng trong list order theo ngày
+                        if (!dthu.contains(newdt)) {
+                            dthu.add(newdt);
+                        }
 
-                        for (int i = 0; i < dthu.size(); i++) {
-                            java.sql.Date dtdate = new java.sql.Date(dthu.get(i).getNgay().getTime());
-                            if (oday.equals(dtdate) == true) {
-                                if (orderday.getName() == dthu.get(i).getName()) {
-                                    money += orderday.getTien();
-                                    DoanhThu newdt = new DoanhThu();
-                                    newdt.setName(orderday.getName());
-                                    newdt.setNgay(orderday.getNgay());
-                                    newdt.setTien(money);
-                                    dthu.set(i, newdt);
-                                    continue;
-                                }
-                            }
-//                            if (orderday.getName() != dthu.get(i).getName()) {
-//                                dthu.add(orderday);
-//                                break;
-//                            }
-                        }
                     }
                     tempday = userdao.addDays(tempday, 1);
+                }
+            }
+            for(int n = 0; n< dthu.size(); n++){
+                for(int m= n+1; m < dthu.size(); m++){
+                    if(dthu.get(n).equals(dthu.get(m))){
+                        dthu.remove(dthu.get(m));
+                    }
                 }
             }
             //xác đinh là admin đang truy cập trang

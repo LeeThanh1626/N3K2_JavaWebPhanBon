@@ -41,7 +41,7 @@ public class UserDAO {
         List<User> users = jdbctemplate.query(sql1, new UserMapper());
         if (users.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Đăng ký thành công!!");
-            String sql = String.format("insert into users(name, password,phone, money) values('%s','%s','%s','%f','%f')", user.getName(), user.getPassword(), user.getPhone(), 0.0, 0.0);
+            String sql = String.format("insert into users(name, password,phone, money,endow) values('%s','%s','%s','%f','%f')", user.getName(), user.getPassword(), user.getPhone(), 0.0, 0.0);
             jdbctemplate.update(sql);
         } else {
             user.setId(-1);
@@ -129,9 +129,9 @@ public class UserDAO {
     }
 
     //lấy đơn hàng trong ngày của user
-    public Order Search_OrderDay(Date tempday, String nameuser) {
+    public List<Order> Search_OrderDay(Date tempday, String nameuser) {
         String sql = "select * from orders where day = ? and nameuser = ?";
-        return jdbctemplate.queryForObject(sql, new Object[]{tempday, nameuser}, new BeanPropertyRowMapper<>(Order.class)); //To change body of generated methods, choose Tools | Templates.
+        return jdbctemplate.query(sql, new Object[]{tempday, nameuser}, new BeanPropertyRowMapper<>(Order.class)); //To change body of generated methods, choose Tools | Templates.
     }
 
     public List<Order> ListOrder() {

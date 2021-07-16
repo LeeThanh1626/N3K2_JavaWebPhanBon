@@ -17,10 +17,10 @@
             <div class="container-flux">
                 
                <a href="index.jsp"><img class="img" src="https://image.flaticon.com/icons/png/512/4082/4082010.png" alt="" ></a>
-                <form action="listSearch.html" method="GET">
+                <form>
                     <div class="group">
-                        <input type="search" placeholder="Tìm kiếm phân bón" name="name"/>
-                        <button title="Tìm phân bón" class="search-magnifier btn" type="submit">Tìm Kiếm</button>
+                        <input type="search" placeholder="Tìm kiếm phân bón" />
+                        <button title="Tìm phân bón" class="search-magnifier btn" onclick="return confirm('Vui lòng đăng nhập để sử dụng')" >Tìm Kiếm</button>
                     </div>
                 </form>
                 <div class="login">

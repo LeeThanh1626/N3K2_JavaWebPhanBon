@@ -20,8 +20,8 @@
         </header>           
         <h1>Thông Tin User</h1>
         <form id="editproduct" action="./Save.html" method="POST">
-            <div
-                <label ><b>ID: ${u.id}</b></label>
+            <div>
+                <input type="text" name="id" value="${u.id}" hidden>
             </div>
             <div>
                 <label ><b>Tên: </b></label>

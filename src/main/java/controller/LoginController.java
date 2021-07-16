@@ -52,10 +52,11 @@ public class LoginController {
             //lưu cookie
             Cookie uc = new Cookie("phoneC", user.getPhone());
             Cookie pc = new Cookie("passC", user.getPassword());
-            //lưu để ác định admin cho phân quyền
-            Cookie nc = new Cookie("nameC", user.getName());
+            //lưu để xác định admin cho phân quyền
+            Cookie nc = new Cookie("nameC", user.getName().replaceAll("\\s+",""));
             uc.setMaxAge(60 * 60 * 24 * 360);
             pc.setMaxAge(60 * 60 * 24 * 360);
+            nc.setMaxAge(60 * 60 * 24 * 360);
             //lưu cookie lên chrome
             response.addCookie(uc);
             response.addCookie(pc);

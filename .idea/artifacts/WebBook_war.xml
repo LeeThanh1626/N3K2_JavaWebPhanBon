@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebBook:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WebBook</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WebBook-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WebBook:war exploded" />
+    </root>
+  </artifact>
+</component>

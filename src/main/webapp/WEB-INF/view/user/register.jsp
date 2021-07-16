@@ -24,7 +24,7 @@
             <form id="regForm" modelattribute="User" action="./registerProcess.html" method="post">
                 <div>
                     <label for="uname"><b>Username: </b></label>
-                    <input type="phone" name="name" placeholder="Nhập tên đăng nhập" readonly="readonly"></input>
+                    <input type="phone" name="name" placeholder="Nhập tên đăng nhập">
                 </div>
                
                 <div>

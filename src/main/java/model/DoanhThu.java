@@ -34,11 +34,34 @@ public class DoanhThu implements Serializable {
         this.tien = tien;
     }
 
+
+    public DoanhThu(String name,Date day){
+        this.name = name;
+        this.ngay = day;
+    }
+    public DoanhThu(){
+
+    }
+
     public Date getNgay() {
         return ngay;
     }
 
     public void setNgay(Date ngay) {
         this.ngay = ngay;
+    }
+    @Override
+    public boolean equals(Object o){
+        if(o == this){
+            return true;
+        }
+        if(o instanceof DoanhThu){
+            if(((DoanhThu)o).getName().equals(this.getName()) &&
+                    ((DoanhThu)o).getNgay().equals(this.getNgay()) &&
+            ((DoanhThu) o).getTien() == this.getTien()){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="WebBook" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="WebBook" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="WebBook" options="-endorseddirs &quot;C:\Users\Dell 7450\Desktop\N3K2_JavaWebPhanBon\target/endorsed&quot;" />
+    </option>
+  </component>
+</project>

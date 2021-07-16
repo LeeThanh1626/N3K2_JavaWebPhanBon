@@ -172,15 +172,22 @@ public class CartDAO {
         for (Cart cart : clist) {
             if (cart.getId() != 0) {
                 //lấy ngày hiện tại
-                long millis=System.currentTimeMillis();
+                long millis = System.currentTimeMillis();
                 Date day = new Date(millis);
+
+                float gia = cart.getPrice();
+                double discount = cart.getDiscount();
+                int qycach = cart.getSpecifications();
+                int sl = cart.getAmount();
+                float total = (gia / qycach * sl) - (gia / qycach * sl) * (float) discount;
+
                 Order o = new Order();
                 o.setNameuser(u.getName());
                 o.setPhone(u.getPhone());
                 o.setNameproduct(cart.getName());
-                o.setPriceproduct(cart.getPrice());
-                o.setAmount(cart.getAmount());
-                o.setTotal(cart.getTotalmoney());
+                o.setPriceproduct(gia);
+                o.setAmount(sl);
+                o.setTotal(total);
                 o.setDay(day);
                 oList.add(o);
             }
