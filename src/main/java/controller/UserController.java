@@ -111,7 +111,31 @@ public class UserController {
         edit.addObject("name", username);
         return edit;
     }
+    //thêm user
+    @RequestMapping(value = "/addUser")
+    public ModelAndView Them_ui(HttpServletRequest req) {
+        String username = "";
+        Cookie arr[] = req.getCookies();
+        for (Cookie o : arr) {
+            if (o.getName().equals("nameC")) {
+                username = o.getValue();
+            }
+        }
+        ModelAndView addU = new ModelAndView("user/add");
+        addU.addObject("name", username);
+        return addU;
+    }
 
+    // cập nhật user xuống database khi sửa hoặc thêm mới
+    @RequestMapping(value = "/Save", method = RequestMethod.POST)
+    public String Save_User(User u) {
+        if (u.getId() == 0) {
+            userdao.register(u);
+        } else {
+            userdao.CapNhat_NoImage(u);
+        }
+        return "redirect:/listUser.html";
+    }
     //Nạp tiền user
     @RequestMapping(value = "/addMoneyUser", produces = "text/plain;charset=UTF-8")
     public ModelAndView addMoneyUser(HttpServletRequest req) {
@@ -154,31 +178,7 @@ public class UserController {
         return "redirect:/listUser.html";
     }
 
-    //thêm user 
-    @RequestMapping(value = "/addUser")
-    public ModelAndView Them_ui(HttpServletRequest req) {
-        String username = "";
-        Cookie arr[] = req.getCookies();
-        for (Cookie o : arr) {
-            if (o.getName().equals("nameC")) {
-                username = o.getValue();
-            }
-        }
-        ModelAndView addU = new ModelAndView("user/add");
-        addU.addObject("name", username);
-        return addU;
-    }
 
-    // cập nhật user xuống database khi sửa hoặc thêm mới
-    @RequestMapping(value = "/Save", method = RequestMethod.POST)
-    public String Save_User(User u) {
-        if (u.getId() == 0) {
-            userdao.register(u);
-        } else {
-            userdao.CapNhat_NoImage(u);
-        }
-        return "redirect:/listUser.html";
-    }
 
     // hiên giao diên doanh thu:
     @RequestMapping(value = "/revenue")
@@ -247,6 +247,21 @@ public class UserController {
                     }
                 }
             }
+            List<String> listName = new ArrayList<String>();
+            dthu.forEach((st)->{
+                if(!listName.contains(st.getName())){
+                    listName.add(st.getName());
+                }
+            });
+
+            List<DoanhThu> dthussss = new ArrayList<>();
+            listName.forEach((t)->{
+                dthu.forEach((dt)->{
+                    if(t.equals(dt.getName())){
+                        dthussss.add(dt);
+                    }
+                });
+            });
             //xác đinh là admin đang truy cập trang
             String username = "";
             Cookie arr[] = req.getCookies();
@@ -256,8 +271,9 @@ public class UserController {
                 }
             }
             history.addObject("name", username);
-            history.addObject("list", dates);
-            history.addObject("listUM", dthu);
+            history.addObject("listDate", dates);
+            history.addObject("statistical", dthussss);
+            history.addObject("listName", listName);
         }
         return history;
     }

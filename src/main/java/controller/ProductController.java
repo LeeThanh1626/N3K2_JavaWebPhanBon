@@ -39,6 +39,7 @@ public class ProductController {
     @Autowired
     ProductDAO dao;
 
+    //lấy tất cả sản phẩm
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView LayDanhSach(HttpServletRequest request) {
         List<Product> lst = dao.AllProduct();
@@ -123,12 +124,11 @@ public class ProductController {
     }
 
     // cập nhật product xuống database khi sửa hoặc thêm mới
-    //test up hình ành
+    //test up hình ảnh
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String Saves(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, FileUploadException, Exception {
         Product b = new Product();
-        // cách này lưu đc ảnh nhưng không lưu đc data
         //tạo nơi lưu ảnh
         String folderupload = request.getServletContext().getRealPath("/Allproduct");
         Path uploadpath = Paths.get(folderupload);

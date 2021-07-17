@@ -31,14 +31,14 @@ public class LoginController {
 
     @Autowired
     UserDAO userdao;
-
+    //hiền thị form login
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("user/login");
         mav.addObject("login", new Login());
         return mav;
     }
-
+    //xác nhận thông tin đăng nhập
     @RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
     public String loginProcess(HttpServletRequest request, HttpServletResponse response,
             @ModelAttribute("login") Login login) throws IOException {
@@ -61,11 +61,9 @@ public class LoginController {
             response.addCookie(uc);
             response.addCookie(pc);
             response.addCookie(nc);
-//            return u;
             return "redirect:/list.html";
         }
         JOptionPane.showMessageDialog(null, "phone or password error");
             return "redirect:/login.html";
-//        return u;
     }
 }

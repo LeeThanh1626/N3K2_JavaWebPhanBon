@@ -65,7 +65,7 @@ public class UserDAO {
             jdbctemplate.update(sql);
         }
     }
-
+    //xác nhận đăng nhập
     public User validateUser(Login login) {
         String sql = "select * from users where phone='" + login.getPhone() + "' and password='" + login.getPassword()
                 + "'";
@@ -74,6 +74,7 @@ public class UserDAO {
         return users.size() > 0 ? users.get(0) : null;
     }
 
+    //load tất cả user
     public List<User> AllUser() {
         String sql = "select * from users ";
         return jdbctemplate.query(sql, new BeanPropertyRowMapper<>(User.class));

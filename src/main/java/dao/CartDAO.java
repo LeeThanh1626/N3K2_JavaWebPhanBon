@@ -113,6 +113,7 @@ public class CartDAO {
         return template.queryForObject(sql, new Object[]{phone}, new BeanPropertyRowMapper<>(User.class));
     }
 
+    //mua sản phẩm
     public void Buy(float totalmoney, String phone) {
         float congno = -1000000;
         User u = Search_User(phone);
@@ -146,7 +147,6 @@ public class CartDAO {
                         ThemOrder(o);
                     }
                 }
-//                DeleCart(phone);
             }
         }
 
